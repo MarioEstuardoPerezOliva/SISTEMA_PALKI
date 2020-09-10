@@ -1,0 +1,15 @@
+create database bd_palki;
+
+use bd_palki;
+
+create table usuario(
+    idUsuario int primary key not null AUTO_INCREMENT,
+    nombreUsuario varchar(20) not null,
+    apellidoUsuario varchar(20)not null,
+    usuario varchar(8)not null,
+    password varchar(8)not null
+
+);
+
+INSERT INTO `usuario`(`nombreUsuario`, `apellidoUsuario`, `usuario`, `password`) VALUES ("Mario", "Perez", "admin", "admin")
+INSERT INTO `usuario`(`nombreUsuario`, `apellidoUsuario`, `usuario`, `password`) VALUES ("Mario", "Perez", "estuardo", "Admin")
