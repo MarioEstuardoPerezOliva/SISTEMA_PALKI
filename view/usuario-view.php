@@ -29,6 +29,15 @@
   <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
+
+  <link href="../plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome Icons -->
+    <link href="../plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="../plugins/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="../plugins/dist/css/skins/skin-blue-light.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../plugins/datatables/dataTables.bootstrap.css">
+
 </head>
 
 
@@ -172,90 +181,72 @@
   </aside>
 
 <!-- INICIA CÓDIGO PÁGINA -->
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>USUARIOS</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="plantilla.php">Inicio</a></li>
-              <li class="breadcrumb-item active">Usuarios</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+      <div class="content">
         <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Tabla Usuarios</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-              <form method="post" class="form-horizontal" id="index" action="index.php"> 
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>NOMBRE</th>
-                    <th>APELLIDO</th>
-                    <th>USUARIO</th>
-                  </tr>
-                  </thead>
-      
+	<div class="col-md-12">
+	
+		<h1>Lista de Usuarios</h1>
+<br>
+							<table class="table table-bordered table-hover">
+			<thead>
+			<th>Nombre completo</th>
+			<th>Nombre de usuario</th>
+			<th>Email</th>
+			<th>Activo</th>
+			<th>Admin</th>
+			<th></th>
+			</thead>
+							<tr>
+				<td>Administrador </td>
+				<td></td>
+				<td>admin</td>
+				<td>
+											<i class="glyphicon glyphicon-ok"></i>
+									</td>
+				<td>
+											<i class="glyphicon glyphicon-ok"></i>
+									</td>
+				<td style="width:30px;"><a href="index.php?view=edituser&id=1" class="btn btn-warning btn-xs">Editar</a></td>
+				</tr>
+								<tr>
+				<td>MARIO ESTUARDO PEREZ OLIVA</td>
+				<td>mperez</td>
+				<td>mperez199708@gmail.com</td>
+				<td>
+											<i class="glyphicon glyphicon-ok"></i>
+									</td>
+				<td>
+											<i class="glyphicon glyphicon-ok"></i>
+									</td>
+				<td style="width:30px;"><a href="index.php?view=edituser&id=2" class="btn btn-warning btn-xs">Editar</a></td>
+				</tr>
+								<tr>
+				<td>ESTUARDO OLIVA</td>
+				<td>estuardo</td>
+				<td>ma@gmail.com</td>
+				<td>
+											<i class="glyphicon glyphicon-ok"></i>
+									</td>
+				<td>
+									</td>
+				<td style="width:30px;"><a href="index.php?view=edituser&id=3" class="btn btn-warning btn-xs">Editar</a></td>
+				</tr>
+				</table>
 
+	</div>
 
-                  <?php
+</div>        </div>
 
-                  foreach($listaUsuario as $usuario){
+<div class="ln_solid">
+                 <div class="form-group">
+               <div class="col-md-6 offset-md-3">
+               <a href="add-usuario.php"><button type="submit" class="btn btn-success btn-lg"><i class="far fa-user"></i>   Nuevo Usuario </button></a>
+</div>
+ </div>
+ </div>
 
-                    ?>
-                    <tr>
-                    
-                    <td><?php echo $usuario->getIdUsuario(); ?></td>
-                    <td><?php echo $usuario->getNombreUsuario(); ?></td>
-                    <td><?php echo $usuario->getApellidoUsuario(); ?></td>
-                    <td><?php echo $usuario->getUsuario(); ?></td>
-                    </tr>
-                  
-                      <?php
-
-                  }
-                   ?> 
-                  
-                  <tfoot>
-                  <tr>
-                    <th>ID</th>
-                    <th>NOMBRE</th>
-                    <th>APELLIDO</th>
-                    <th>USUARIO</th>
-                  </tr>
-                  </tfoot>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
 <!-- TERMINA CÓDIGO PÁGINA -->
 
     <!-- /.row (main row) -->

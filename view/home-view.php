@@ -148,7 +148,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href= "add-usuario.php" class="nav-link">
+                <a href= "add-usuario.php"  class="nav-link">
                   <i class="nav-icon fas fa-users-cog"></i>
                   <p>Nuevo Usuario</p>
                 </a>
