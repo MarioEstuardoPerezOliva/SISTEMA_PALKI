@@ -23,13 +23,13 @@ print $userid;
 setcookie('userid',$userid);
 print $_SESSION['userid'];
 print "Cargando ... $userid";
-print "<script>window.location='plantilla.php';</script>";
+print "<script>window.location='view/home-view.php';</script>";
 }else {
 print "<script>window.location='login.php';</script>";
 }
 
 }else{
-print "<script>window.location='plantilla.php';</script>";
+print "<script>window.location='view/home-view.php';</script>";
 
 
 }

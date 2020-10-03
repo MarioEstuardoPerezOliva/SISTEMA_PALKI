@@ -32,7 +32,7 @@ include "controller/Database.php"; ?>
     <div class="card-body login-card-body">
       <p class="login-box-msg">INGRESE SUS DATOS</p>
 
-      <form action="index2.php" method="post">
+      <form action="index.php" method="post">
         <div class="input-group mb-3">
           <input type="user" require class="form-control" placeholder="Usuario" id="usuario"
           name ="usuario" pattern="[a-z]{1,8}" title="Solo letras minúsculas" maxlength="8">

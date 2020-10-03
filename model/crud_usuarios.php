@@ -1,7 +1,7 @@
 <?php
 // incluye la clase Db
-include "controller/Database.php";
-include "controller/Executor.php";
+include "..\controller\Database.php";
+include "..\controller\Executor.php";
 
 
 	class CrudUsuario{
@@ -27,32 +27,33 @@ include "controller/Executor.php";
  
 		
  
-		// m�todo para mostrar todos los libros
+		// m�todo para mostrar todos los usuarios
 		public function mostrar(){
 			$db=Database::getCon();
-			$listaLibros=[];
-			$select=$db->query("SELECT * FROM libros");
+			$listaUsuario=[];
+			$select=$db->query("SELECT idUsuario, nombreUsuario, apellidoUsuario, usuario FROM usuario");
  
-			foreach($select as $libro){
-				$myLibro= new Libro();
-				$myLibro->setId($libro['id']);
-				$myLibro->setNombre($libro['nombre']);
-				$myLibro->setAutor($libro['autor']);
-				$myLibro->setAnio_edicion($libro['anio_edicion']);
-				$listaLibros[]=$myLibro;
+			foreach($select as $usuario){
+				$myUsuario= new Usuario();
+				$myUsuario->setIdUsuario($usuario['idUsuario']);
+				$myUsuario->setNombreUsuario($usuario['nombreUsuario']);
+				$myUsuario->setApellidoUsuario($usuario['apellidoUsuario']);
+				$myUsuario->setUsuario($usuario['usuario']);
+				
+				$listaUsuario[]=$myUsuario;
 			}
-			return $listaLibros;
+			return $listaUsuario;
 		}
  
 		// m�todo para eliminar un libro, recibe como par�metro el id del libro
-		public function eliminar($id){
-			$db=Database::getCon();
-			$sql = "DELETE FROM libros WHERE ID=$id";
-			//print_r($sql);
-			return Executor::doit($db,$sql);
-
-		}
- 
+		//public function eliminar($id){
+		//	$db=Database::getCon();
+		//	$sql = "DELETE FROM libros WHERE ID=$id";
+		//	//print_r($sql);
+		//	return Executor::doit($db,$sql);
+//
+//		}
+/* 
 		// m�todo para buscar un libro, recibe como par�metro el id del libro
 		public function obtenerLibro($id){
 			$db=Database::getCon();
@@ -84,7 +85,7 @@ include "controller/Executor.php";
 			
 			return Executor::doit($db,$sql);
 			
-			
+			*/
 		}
 	}
 ?>
