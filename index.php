@@ -1,12 +1,7 @@
 <?php
-
-require_once "controller/Database.php";
-require_once "controller/processlogin-action.php";
-require_once "controller/login_controlador.php";
-
-$plantilla = new controllogin();
-$plantilla -> ctrllogin();
-
+/**
+* @author evilnapsis
+**/
 
 define("ROOT", dirname(__FILE__));
 
@@ -17,7 +12,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 }
 
-include "controller/Database.php";
+include "core/autoload.php";
 
 ob_start();
 session_start();
@@ -28,3 +23,5 @@ Core::$root="";
 
 $lb = new Lb();
 $lb->start();
+
+?>
