@@ -100,7 +100,7 @@
 
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu">
-            <li class="header">ADMINISTRACION</li>
+            <li class="header">CONTROL JORNALES</li>
             <?php if(isset($_SESSION["user_id"])):?>
                         <li><a href="./index.php?view=home"><i class='fa fa-home'></i> <span>Escritorio</span></a></li>
             <li><a href="./?view=products"><i class='fa fa-users'></i> <span>Colaboradores</span></a></li>
@@ -131,7 +131,7 @@
             <li class="treeview">
               <a href="#"><i class='fa fa-cog'></i> <span>Administracion</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="./?view=users">Usuarios</a></li>
+                <li><a href="./?view=usuario">Usuarios</a></li>
               </ul>
             </li>
           <?php endif;?>
