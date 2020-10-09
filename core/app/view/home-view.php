@@ -9,14 +9,14 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3><?php echo count(ProductData::getAll());?></h3>
+              <h3><?php echo count(PersonData::getColaborador());?></h3>
 
               <p>Colaboradores</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="./?view=products" class="small-box-footer">Ver mas <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="./?view=colaborador" class="small-box-footer">Ver mas <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -24,7 +24,7 @@
           <!-- small box -->
           <div class="small-box bg-purple">
             <div class="inner">
-            <h3><?php echo count(ProductData::getAll());?></h3>
+            <h3><?php echo count(UserData::getAll());?></h3>
 
               <p>Usuarios</p>
             </div>

@@ -3,7 +3,7 @@ class Database {
 	public static $db;
 	public static $con;
 	function Database(){
-		$this->user="root";$this->pass="";$this->host="127.0.0.1:33065";$this->ddbb="bd_palkisa";
+		$this->user="root";$this->pass="";$this->host="127.0.0.1:33065";$this->ddbb="bd_palki_system";
 	}
 
 	function connect(){

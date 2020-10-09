@@ -1,6 +1,3 @@
-    <?php 
-$categories = CategoryData::getAll();
-    ?>
 <div class="row">
 	<div class="col-md-12">
 	<h1>Nuevo Producto</h1>
@@ -30,10 +27,7 @@ $categories = CategoryData::getAll();
     <div class="col-md-6">
     <select name="category_id" class="form-control">
     <option value="">-- NINGUNA --</option>
-    <?php foreach($categories as $category):?>
-      <option value="<?php echo $category->id;?>"><?php echo $category->name;?></option>
-    <?php endforeach;?>
-      </select>    </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Descripcion</label>

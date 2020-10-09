@@ -1,5 +1,6 @@
 <?php
 
+$product = ProductData::getById($_GET["id"]);
 
 if(count($_POST)>0){
   $product = new ProductData();

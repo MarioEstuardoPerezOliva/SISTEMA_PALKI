@@ -7,9 +7,9 @@ if(count($_POST)>0){
 	$user->address1 = $_POST["address1"];
 	$user->email1 = $_POST["email1"];
 	$user->phone1 = $_POST["phone1"];
-	$user->add_client();
+	$user->add_colaborador();
 
-print "<script>window.location='index.php?view=clients';</script>";
+print "<script>window.location='index.php?view=colaborador';</script>";
 
 
 }
