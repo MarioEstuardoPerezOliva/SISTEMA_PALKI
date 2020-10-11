@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-12">
-	<a href="index.php?view=nuevoUsuario" class="btn btn-default pull-right"><i class='glyphicon glyphicon-user'></i> Nuevo Usuario</a>
+	<a href="index.php?view=nuevoUsuario" class="btn btn-warning pull-right"><i class='glyphicon glyphicon-user'></i> Nuevo Usuario</a>
 		<h1>Lista de Usuarios</h1>
 <br>
 
@@ -38,8 +38,8 @@
 						<i class="glyphicon glyphicon-ok"></i>
 					<?php endif; ?>
 				</td>
-				<td style="width:30px;"><a href="index.php?view=editarUsuario&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs">Editar</a></td>
-				<td style="width:30px;"><a href="index.php?view=eliminaUsuario&id=<?php echo $user->id;?>" class="btn btn-danger btn-xs">Eliminar</a></td>
+				<td style="width:30px;"><a href="index.php?view=editarUsuario&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a></td>
+				<td style="width:30px;"><a href="index.php?view=eliminaUsuario&id=<?php echo $user->id;?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
 				</tr>
 				<?php
 

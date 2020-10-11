@@ -1,13 +1,13 @@
 <div class="row">
 	<div class="col-md-12">
 <div class="btn-group pull-right">
-<a href="index.php?view=nuevoColaborador" class="btn btn-default"><i class='fa fa-smile-o'></i> Nuevo Colaborador</a>
+<a href="index.php?view=nuevoColaborador" class="btn btn-danger"><i class='fa fa-user'></i> Nuevo Colaborador</a>
 <div class="btn-group pull-right">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
     <i class="fa fa-download"></i> Descargar <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
-    <li><a href="report/providers-word.php">Word 2007 (.docx)</a></li>
+    <li><a class="btn btn-success" href="report/providers-word.php">Word 2007 (.docx)</a></li>
   </ul>
 </div>
 </div>
@@ -39,13 +39,14 @@
 				<td><?php echo $user->email1; ?></td>
 				<td><?php echo $user->phone1; ?></td>
 				<td style="width:130px;">
-				<a href="index.php?view=editarColaborador&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs">Editar</a>
-				<a href="index.php?view=eliminarColaborador&id=<?php echo $user->id;?>" class="btn btn-danger btn-xs">Eliminar</a>
+				<a href="index.php?view=editarColaborador&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
+				<a href="index.php?view=eliminarColaborador&id=<?php echo $user->id;?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>   Eliminar</a>
 				</td>
 				</tr>
 				<?php
 
 			}
+			echo "</table>";
 
 
 
@@ -56,6 +57,6 @@
 
 		?>
 
-
+<br><br><br><br><br><br><br><br><br><br>
 	</div>
 </div>

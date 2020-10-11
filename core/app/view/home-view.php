@@ -1,5 +1,5 @@
 
-<div class="row">
+<div class="row ">
 	<div class="col-md-12">
  		<h1>Bienvenido a Sistema PALKI</h1>
 </div>
@@ -20,18 +20,22 @@
           </div>
         </div>
         <!-- ./col -->
+
+
+        
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-purple">
+          
             <div class="inner">
             <h3><?php echo count(UserData::getAll());?></h3>
-
               <p>Usuarios</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="./?view=users" class="small-box-footer">Ver mas <i class="fa fa-arrow-circle-right"></i></a>
+            
+            <a href="./?view=usuario" class="small-box-footer ">Ver mas <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -41,7 +45,7 @@
             <div class="inner">
              
             <h3><?php echo count(ProductData::getAll());?></h3>
-              <p>Proveedores</p>
+              <p>Gestiones</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -67,5 +71,6 @@
         <!-- ./col -->
       </div>
       <!-- /.row -->
+  
 
-</div>
+

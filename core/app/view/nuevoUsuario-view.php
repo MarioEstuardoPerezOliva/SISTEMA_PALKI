@@ -48,11 +48,11 @@
     </div>
   </div>
 
-  <p class="alert alert-info">* Campos obligatorios</p>
+  <p class="alert alert-warning">* Campos obligatorios</p>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <button type="submit" class="btn btn-primary">Agregar Usuario</button>
+      <button type="submit" class="btn btn-danger"><i class='glyphicon glyphicon-user'></i>Agregar Usuario</button>
     </div>
   </div>
 </form>

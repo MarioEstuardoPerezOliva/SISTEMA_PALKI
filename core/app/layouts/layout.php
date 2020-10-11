@@ -89,7 +89,7 @@
                 <a href="#" class="dropdown-toggle">
                   <!-- The user image in the navbar-->
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class=""><?php if(isset($_SESSION["user_id"]) ){ echo UserData::getById($_SESSION["user_id"])->name; 
+                  <span class="     "><?php if(isset($_SESSION["user_id"]) ){ echo UserData::getById($_SESSION["user_id"])->name." ".UserData::getById($_SESSION["user_id"])->lastname; 
 
                   }?>  </span>
                 </a>
@@ -100,12 +100,12 @@
 
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu">
-            <li class="header">CONTROL JORNALES</li>
+            <li class="header bg-red">CONTROL JORNALES</li>
             <?php if(isset($_SESSION["user_id"])):?>
                         <li><a href="./index.php?view=home"><i class='fa fa-home'></i> <span>Escritorio</span></a></li>
-            <li><a href="./?view=products"><i class='fa fa-users'></i> <span>Colaboradores</span></a></li>
+            <li><a href="./?view=products"><i class='fa fa-database'></i> <span>Gestión</span></a></li>
             <li class="treeview">
-              <a href="#"><i class='fa fa-database'></i> <span>Colaboradores</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href="#"><i class='fa fa-users'></i> <span>Colaboradores</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="./?view=colaborador">Colaboradores</a></li>
               </ul>
@@ -129,7 +129,7 @@
 
 
             <li class="treeview">
-              <a href="#"><i class='fa fa-cog'></i> <span>Administracion</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href="#"><i class='fa fa-cog'></i> <span>Administración</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="./?view=usuario">Usuarios</a></li>
               </ul>
@@ -150,8 +150,8 @@
         </div>
       </div><!-- /.content-wrapper -->
 
-        <footer class=" main-footer ">
-        <div class=" pull-right hidden-xs">
+        <footer class=" main-footer bg-green " >
+        <div class=" pull-right hidden-xs ">
           <b>Version</b> 1.0  mperez08
         </div>
         <strong>Copyright &copy; 2020 Sistema PALKI, S.A. </strong> Todos los derechos reservados

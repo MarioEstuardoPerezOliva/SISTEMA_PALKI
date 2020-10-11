@@ -35,7 +35,7 @@
     <label for="inputEmail1" class="col-lg-2 control-label">Contrase&ntilde;a</label>
     <div class="col-md-6">
       <input type="password" name="password" class="form-control" id="inputEmail1" placeholder="Contrase&ntilde;a">
-<p class="help-block">Es necesario ingresar una contrase&ntilde;a para que la modificación sea exitosa.</p>
+<p class="alert alert-warning">Es necesario ingresar una contrase&ntilde;a para que la modificación sea exitosa.</p>
     </div>
   </div>
 
@@ -67,7 +67,7 @@
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
     <input type="hidden" name="user_id" value="<?php echo $user->id;?>">
-      <button type="submit" class="btn btn-primary">Actualizar Usuario</button>
+      <button type="submit" class="btn btn-danger"><i class="fa fa-refresh fa-spin"></i>      Actualizar Usuario</button>
     </div>
   </div>
 </form>

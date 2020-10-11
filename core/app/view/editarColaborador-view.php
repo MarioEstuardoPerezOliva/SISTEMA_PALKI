@@ -44,7 +44,7 @@
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
     <input type="hidden" name="user_id" value="<?php echo $user->id;?>">
-      <button type="submit" class="btn btn-primary">Actualizar Colaborador</button>
+      <button type="submit" class="btn btn-danger"><i class="fa fa-refresh fa-spin"></i>      Actualizar Colaborador</button>
     </div>
   </div>
 </form>

@@ -4,95 +4,74 @@
 	<br>
 		<form class="form-horizontal" method="post" enctype="multipart/form-data" id="addproduct" action="index.php?view=addproduct" role="form">
 
-  <div class="form-group">
+    <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Imagen</label>
     <div class="col-md-6">
       <input type="file" name="image" id="image" placeholder="">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Codigo de Barras*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">DPI*</label>
     <div class="col-md-6">
-      <input type="text" name="barcode" id="product_code" class="form-control" id="barcode" placeholder="Codigo de Barras del Producto">
+      <input type="text" name="dpi" id="dpi" class="form-control" id="dpi" placeholder="DPI del Colaborador">
     </div>
   </div>
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Nombre*</label>
     <div class="col-md-6">
-      <input type="text" name="name" required class="form-control" id="name" placeholder="Nombre del Producto">
+      <input type="text" name="nombre" required class="form-control" id="nombre" placeholder="Nombre del Colaborador">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Categoria</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Apellido*</label>
     <div class="col-md-6">
-    <select name="category_id" class="form-control">
-    <option value="">-- NINGUNA --</option>
+      <input type="text" name="apellido" required class="form-control" id="apellido" placeholder="Apellido del Colaborador">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Descripcion</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Edad*</label>
     <div class="col-md-6">
-      <textarea name="description" class="form-control" id="description" placeholder="Descripcion del Producto"></textarea>
+      <input type="text" name="edad" required class="form-control" id="edad" placeholder="Edad del Colaborador">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Precio de Entrada*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Fecha de Nacimiento*</label>
     <div class="col-md-6">
-      <input type="text" name="price_in" required class="form-control" id="price_in" placeholder="Precio de entrada">
+      <input type="text" name="fechaNacimiento" required class="form-control" id="fechaNacimiento" placeholder="Fecha de Nacimiento del Colaborador">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Precio de Salida*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Dirección*</label>
     <div class="col-md-6">
-      <input type="text" name="price_out" required class="form-control" id="price_out" placeholder="Precio de salida">
+      <input type="text" name="direccion" required class="form-control" id="direccion" placeholder="Dirección del Colaborador">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Unidad*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Genero*</label>
     <div class="col-md-6">
-      <input type="text" name="unit" required class="form-control" id="unit" placeholder="Unidad del Producto">
+      <input type="text" name="genero" required class="form-control" id="genero" placeholder="Genero del Colaborador">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Teléfono*</label>
+    <div class="col-md-6">
+      <input type="text" name="telefono" required class="form-control" id="telefono" placeholder="Teléfono del Colaborador">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">E-mail*</label>
+    <div class="col-md-6">
+      <input type="text" name="email" required class="form-control" id="email" placeholder="E-mail del Colaborador">
     </div>
   </div>
 
-  <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Presentacion</label>
-    <div class="col-md-6">
-      <input type="text" name="presentation" class="form-control" id="inputEmail1" placeholder="Presentacion del Producto">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Minima en inventario:</label>
-    <div class="col-md-6">
-      <input type="text" name="inventary_min" class="form-control" id="inputEmail1" placeholder="Minima en Inventario (Default 10)">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Inventario inicial:</label>
-    <div class="col-md-6">
-      <input type="text" name="q" class="form-control" id="inputEmail1" placeholder="Inventario inicial">
-    </div>
-  </div>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <button type="submit" class="btn btn-primary">Agregar Producto</button>
+      <button type="submit" class="btn btn-primary">Agregar Colaborador</button>
     </div>
   </div>
 </form>
 
 	</div>
 </div>
-
-<script>
-  $(document).ready(function(){
-    $("#product_code").keydown(function(e){
-        if(e.which==17 || e.which==74 ){
-            e.preventDefault();
-        }else{
-            console.log(e.which);
-        }
-    })
-});
-
-</script>
