@@ -1,6 +1,6 @@
 <?php
 
-$user = UserData::getById($_GET["id"]);
+$user = UserData::getById($_GET["idusuario"]);
 $user->del();
 Core::redir("./index.php?view=usuario");
 

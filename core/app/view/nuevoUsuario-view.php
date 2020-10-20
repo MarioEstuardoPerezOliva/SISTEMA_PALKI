@@ -6,39 +6,53 @@
 
 
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Nombre*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Primer Nombre*</label>
     <div class="col-md-6">
-      <input type="text" name="name" class="form-control" id="name" placeholder="Nombre">
+      <input type="text" name="nombre1" class="form-control" id="nombre1" placeholder="Primer Nombre"
+      pattern="[A-Za-z]{1,50}" title="Solo letras mayúsculas o minúsculas" maxlength="50">
     </div>
   </div>
+  
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Apellido*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Segundo Nombre*</label>
     <div class="col-md-6">
-      <input type="text" name="lastname" required class="form-control" id="lastname" placeholder="Apellido">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Nombre de usuario*</label>
-    <div class="col-md-6">
-      <input type="text" name="username" class="form-control" required id="username" placeholder="Nombre de usuario">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Email*</label>
-    <div class="col-md-6">
-      <input type="text" name="email" class="form-control" id="email" placeholder="Email">
+      <input type="text" name="nombre2" class="form-control" id="nombre2" placeholder="Segundo Nombre"
+      pattern="[A-Za-z]{1,50}" title="Solo letras mayúsculas o minúsculas" maxlength="50">
     </div>
   </div>
 
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Contrase&ntilde;a</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Primer Apellido*</label>
     <div class="col-md-6">
-      <input type="password" name="password" class="form-control" id="inputEmail1" placeholder="Contrase&ntilde;a">
+      <input type="text" name="apellido1" required class="form-control" id="apellido1" placeholder="Primer Apellido"
+      pattern="[A-Za-z]{1,50}" title="Solo letras mayúscualas o minúsculas" maxlength="50">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Segundo Apellido*</label>
+    <div class="col-md-6">
+      <input type="text" name="apellido2" required class="form-control" id="apellido2" placeholder="Segundo Apellido"
+      pattern="[A-Za-z]{1,50}" title="Solo letras mayúscualas o minúsculas" maxlength="50">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Nombre de Usuario*</label>
+    <div class="col-md-6">
+      <input type="text" name="username" class="form-control" required id="username" placeholder="Nombre de usuario"
+      pattern="[a-z0-9]{1,15}" title="Solo letras minúsculas y números" maxlength="15">
     </div>
   </div>
 
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Es administrador</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Contrase&ntilde;a*</label>
+    <div class="col-md-6">
+      <input type="password" name="password" class="form-control" id="inputEmail1" placeholder="Contrase&ntilde;a"
+      pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="La contraseña debe tener al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter especial" >
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Es administrador*</label>
     <div class="col-md-6">
 <div class="checkbox">
     <label>
@@ -58,3 +72,22 @@
 </form>
 	</div>
 </div>
+
+<script>
+    funcion validacion_caracteres(e){
+      key=e.keyCode || e.which;
+      teclado=String.fromCharCode(key);
+      numero="0123456789";
+      especiales="0-37-38-46";//aray
+      teclado_especial=false;
+          for(var i in especiales){
+            if(key==especiales[i]){
+              teclado_especial=true;
+               }
+          }
+          if(numero.indexOf(teclado)==-1 && !teclado_especial){
+            return false;
+               }
+    }
+    </script>
+    

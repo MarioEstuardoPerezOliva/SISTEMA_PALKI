@@ -10,6 +10,7 @@
     <li><a class="btn btn-success" href="report/providers-word.php">Word 2007 (.docx)</a></li>
   </ul>
 </div>
+<a href="index.php?view=buscarColaborador" class="btn btn-success"><i class='fa fa-user'></i> Buscar Colaborador</a>
 </div>
 		<h1>NÓMINA COLABORADORES</h1>
 <br>

@@ -1,24 +1,36 @@
 <?php
 class Database {
-	public static $db;
+	public static $dbServidor;
 	public static $con;
-	function Database(){
-		$this->user="root";$this->pass="";$this->host="127.0.0.1:33065";$this->ddbb="bd_palki_system";
+	public static $id;
+	
+	function Database(){		
+			 
 	}
 
 	function connect(){
-		$con = new mysqli($this->host,$this->user,$this->pass,$this->ddbb);
-		$con->query("set sql_mode=''");
+	
+		$dbServidor = "localhost"; //Name of the server/instance, including optional port number (default is 1433)
+		$dbName = "dbpalki"; //Name of the database
+		$dbUser = "marioadmin"; //Name of the user
+		$dbPassword = "admin123"; //DB Password of that user	
+			
+		$conn_info = array (   
+			"Database" => $dbName, 
+	    	"UID" => $dbUser,
+	    	"PWD" => $dbPassword
+		);
+		$con = sqlsrv_connect($dbServidor, $conn_info);	
 		return $con;
 	}
 
 	public static function getCon(){
-		if(self::$con==null && self::$db==null){
-			self::$db = new Database();
-			self::$con = self::$db->connect();
+		if(self::$con==null && self::$dbServidor==null){
+
+			self::$dbServidor = new Database();
+			self::$con = self::$dbServidor->connect();
 		}
 		return self::$con;
-	}
-	
+	}	
 }
 ?>

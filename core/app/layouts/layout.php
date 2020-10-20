@@ -89,9 +89,7 @@
                 <a href="#" class="dropdown-toggle">
                   <!-- The user image in the navbar-->
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class="     "><?php if(isset($_SESSION["user_id"]) ){ echo UserData::getById($_SESSION["user_id"])->name." ".UserData::getById($_SESSION["user_id"])->lastname; 
-
-                  }?>  </span>
+                  <span class="  "> </span>
                 </a>
                 <br><br>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online </a>
@@ -103,7 +101,7 @@
             <li class="header bg-red">CONTROL JORNALES</li>
             <?php if(isset($_SESSION["user_id"])):?>
                         <li><a href="./index.php?view=home"><i class='fa fa-home'></i> <span>Escritorio</span></a></li>
-            <li><a href="./?view=products"><i class='fa fa-database'></i> <span>Gestión</span></a></li>
+            <!--<li><a href="./?view=products"><i class='fa fa-database'></i> <span>Gestión</span></a></li>-->
             <li class="treeview">
               <a href="#"><i class='fa fa-users'></i> <span>Colaboradores</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
@@ -119,7 +117,7 @@
 
               </ul>
             </li>
-                        <li class="treeview">
+                       <li class="treeview">
               <a href="#"><i class='fa fa-file-text-o'></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="./?view=reports">Actividad</a></li>
@@ -200,6 +198,8 @@
 
     <script src="plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+ 
     <script type="text/javascript">
       $(document).ready(function(){
         $(".datatable").DataTable({

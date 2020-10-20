@@ -1,38 +1,42 @@
-<?php
-
-// define('LBROOT',getcwd()); // LegoBox Root ... the server root
-// include("core/controller/Database.php");
-
+<?php 
 if(!isset($_SESSION["user_id"])) {
-$user = $_POST['username'];
-$pass = sha1(md5($_POST['password']));
+	$base = new Database();    
+	$conexion = $base->getCon();
 
-$base = new Database();
-$con = $base->connect();
- $sql = "select * from user where (email= \"".$user."\" or username= \"".$user."\") and password= \"".$pass."\" and is_active=1";
-//print $sql;
-$query = $con->query($sql);
-$found = false;
-$userid = null;
-while($r = $query->fetch_array()){
-	$found = true ;
-	$userid = $r['id'];
+if (!$conexion){
+   
+  echo "error en conexion <br>";       
+    die(print_r(sqlsrv_errors(), true)); 
+}else{   
+
+    echo "conexion exitosa!!";
+
+    $user= $_POST['username'];
+    $pass= $_POST['password'];
+
+    $sql = "SELECT * FROM Usuario where username='$user' and password = '$pass'";
+
+    $userid = null;
+
+    if(($result = sqlsrv_query($conexion,$sql)) !== false){
+       
+        while( $row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC) ) {
+            $userid = $row['idusuario'];
+            $_SESSION['user_id']=$userid;
+        
+            echo $row['username'].", ".$row['password']."<br />";
+            print "<script>window.location='index.php?view=home';</script>";
+
+        }
+        
+    }
+
+    print "<script>window.location='index.php?view=login';</script>";
+
 }
-
-if($found==true) {
-//	session_start();
-//	print $userid;
-	$_SESSION['user_id']=$userid ;
-//	setcookie('userid',$userid);
-//	print $_SESSION['userid'];
-	print "Cargando ... $user";
-	print "<script>window.location='index.php?view=home';</script>";
-}else {
-	print "<script>window.location='index.php?view=login';</script>";
-}
-
 }else{
 	print "<script>window.location='index.php?view=home';</script>";
 	
 }
-?>
+
+ ?>

@@ -1,12 +1,12 @@
 <?php
 class UserData {
-	public static $tablename = "user";
+	public static $tablename = "Usuario";
 
 
 
 	public function Userdata(){
-		$this->name = "";
-		$this->lastname = "";
+		$this->nombre = "";
+		$this->apellido = "";
 		$this->email = "";
 		$this->image = "";
 		$this->password = "";
@@ -14,8 +14,8 @@ class UserData {
 	}
 
 	public function add(){
-		$sql = "insert into user (name,lastname,username,email,is_admin,password,created_at) ";
-		$sql .= "value (\"$this->name\",\"$this->lastname\",\"$this->username\",\"$this->email\",\"$this->is_admin\",\"$this->password\",$this->created_at)";
+		$sql = "insert into Usuarios (nombre,apellido,username,email,is_admin,password,created_at) ";
+		$sql = "value (\"$this->nombre\",\"$this->apellido\",\"$this->username\",\"$this->email\",\"$this->is_admin\",\"$this->password\",$this->created_at)";
 		Executor::doit($sql);
 	}
 
@@ -30,7 +30,7 @@ class UserData {
 
 // partiendo de que ya tenemos creado un objecto UserData previamente utilizamos el contexto
 	public function update(){
-		$sql = "update ".self::$tablename." set name=\"$this->name\",email=\"$this->email\",username=\"$this->username\",lastname=\"$this->lastname\",is_active=\"$this->is_active\",is_admin=\"$this->is_admin\" where id=$this->id";
+		$sql = "update ".self::$tablename." set nombre=\"$this->name\",email=\"$this->email\",username=\"$this->username\",apellido=\"$this->lastname\",is_active=\"$this->is_active\",is_admin=\"$this->is_admin\" where id=$this->id";
 		Executor::doit($sql);
 	}
 

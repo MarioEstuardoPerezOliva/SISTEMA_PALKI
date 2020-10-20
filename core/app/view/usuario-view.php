@@ -12,22 +12,20 @@
 			?>
 			<table class="table table-bordered table-hover">
 			<thead>
-			<th>Nombre</th>
-			<th>Apellido</th>
+			<th>Nombre Completo</th>
+			<th>Apellidos</th>
 			<th>Nombre de usuario</th>
-			<th>Email</th>
 			<th>Activo</th>
-			<th>Admin</th>
+			<th>Administrador</th>
 			<th></th>
 			</thead>
 			<?php
 			foreach($users as $user){
 				?>
 				<tr>
-				<td><?php echo $user->name; ?></td>
-				<td><?php echo $user->lastname; ?></td>
+				<td><?php echo $user->nombre1." ".$user->nombre2; ?></td>
+				<td><?php echo $user->apellido1." ".$user->apellido2; ?></td>
 				<td><?php echo $user->username; ?></td>
-				<td><?php echo $user->email; ?></td>
 				<td>
 					<?php if($user->is_active):?>
 						<i class="glyphicon glyphicon-ok"></i>
@@ -38,8 +36,8 @@
 						<i class="glyphicon glyphicon-ok"></i>
 					<?php endif; ?>
 				</td>
-				<td style="width:30px;"><a href="index.php?view=editarUsuario&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a></td>
-				<td style="width:30px;"><a href="index.php?view=eliminaUsuario&id=<?php echo $user->id;?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
+				<td style="width:30px;"><a href="index.php?view=editarUsuario&id=<?php echo $user->idusuario;?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a></td>
+				<td style="width:30px;"><a href="index.php?view=eliminaUsuario&id=<?php echo $user->idusuario;?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
 				</tr>
 				<?php
 

@@ -9,7 +9,6 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3><?php echo count(PersonData::getColaborador());?></h3>
 
               <p>Colaboradores</p>
             </div>
@@ -28,7 +27,7 @@
           <div class="small-box bg-purple">
           
             <div class="inner">
-            <h3><?php echo count(UserData::getAll());?></h3>
+
               <p>Usuarios</p>
             </div>
             <div class="icon">
@@ -44,7 +43,7 @@
           <div class="small-box bg-yellow">
             <div class="inner">
              
-            <h3><?php echo count(ProductData::getAll());?></h3>
+
               <p>Gestiones</p>
             </div>
             <div class="icon">
@@ -59,7 +58,7 @@
           <div class="small-box bg-red">
             <div class="inner">
               
-            <h3><?php echo count(ProductData::getAll());?></h3>
+
               <p>TAREAS</p>
             </div>
             <div class="icon">
