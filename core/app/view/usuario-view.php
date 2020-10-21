@@ -1,4 +1,8 @@
-
+<div class="row">
+	<div class="col-md-12">
+	<a href="index.php?view=nuevoUsuario" class="btn btn-warning pull-right"><i class='glyphicon glyphicon-user'></i> Nuevo Usuario</a>
+		<h1>Lista de Usuarios</h1>
+<br>
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -17,7 +21,8 @@
 				  <th>Nombre Completo</th>
 				  <th>Apellidos</th>
 				  <th>Nombre de usuario</th>
-	              <th>Estado</th>
+				  <th>Estado</th>
+				  <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +32,7 @@
 
 $conexion =Database::getCon();
 
-$sql = "select t.tipousuario,(u.nombre1+u.nombre2) as Nombres, (u.apellido1+u.apellido2) as Apellidos, username, estado_idestado from Usuario as u
+$sql = "select t.tipousuario,concat(u.nombre1,' ',u.nombre2) as Nombres, concat(u.apellido1,' ',u.apellido2) as Apellidos, username, estado_idestado from Usuario as u
 inner join Tipousuario as t on t.idtipousuario=u.tipousuario_idtipousuario";
 
 $resultado= sqlsrv_query($conexion,$sql);
@@ -40,7 +45,9 @@ while($fila = sqlsrv_fetch_array($resultado)){
                 <td><?php echo $fila['Nombres'];?></td>
                 <td><?php echo $fila['Apellidos'];?></td>
                 <td><?php echo $fila['username'];?></td>
-                <td><?php echo $fila['estado_idestado'];?></td>
+				<td><?php echo $fila['estado_idestado'];?></td>
+				<td style="width:30px;"><a href="index.php?view=editarUsuario&idusuario=<?php echo $fila->idusuario;?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a></td>
+				<td style="width:30px;"><a href="index.php?view=eliminaUsuario&idusuario=<?php echo $fila->idusuario;?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
             </tr>
 
             <?php }; ?>          
@@ -51,7 +58,8 @@ while($fila = sqlsrv_fetch_array($resultado)){
 				  <th>Nombre Completo</th>
 				  <th>Apellidos</th>
 				  <th>Nombre de usuario</th>
-	              <th>Estado</th>
+				  <th>Estado</th>
+				  <th>Acciones</th>
             </tr>
         </tfoot>
     </table>
@@ -66,7 +74,8 @@ while($fila = sqlsrv_fetch_array($resultado)){
       </div>
       <!-- /.container-fluid -->
     </section>
-
+	</div>
+	</div>
 
 
 <!-- jQuery -->
@@ -82,23 +91,6 @@ while($fila = sqlsrv_fetch_array($resultado)){
 <script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
-<!-- page script -->
-<script>
-  $(function () {
-    $("#tbusuarios").DataTable({
-      "responsive": true,
-      "autoWidth": true,
-    });
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": true,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": true,
-      "responsive": true,
-    });
-  });
 </script>
 </body>
 </html>

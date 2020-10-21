@@ -27,8 +27,9 @@ class UserData {
 		Executor::doit($sql);
 	}
 	public function del(){
-		$sql = "delete from ".self::$tablename." where id=$this->id";
-		Executor::doit($sql);
+		$conexion =Database::getCon();
+		$sql = "delete from ".self::$tablename." where idusuario=$this->idusuario";
+		$resultado= sqlsrv_query($conexion,$sql);
 	}
 
 // partiendo de que ya tenemos creado un objecto UserData previamente utilizamos el contexto
@@ -44,9 +45,8 @@ class UserData {
 
 
 	public static function getById($id){
-		$sql = "select * from ".self::$tablename." where id=$id";
-		$query = Executor::doit($sql);
-		return Model::one($query[0],new UserData());
+		$sql = "select * from ".self::$tablename."  where idusuario=$this->idusuario";
+		$resultado= sqlsrv_query($conexion,$sql);
 
 	}
 
@@ -59,12 +59,12 @@ class UserData {
 
 
 	public static function getAll(){
-		$con = Database::getCon();
-		if($con !== false ){
-			$sql = "select * from ".self::$tablename;
-			$query = sqlsrv_query($con,$sql);		
-		}
-		return $query;
+		$conexion =Database::getCon();
+
+		$sql = "select t.tipousuario,concat(u.nombre1,' ',u.nombre2) as Nombres, concat(u.apellido1,' ',u.apellido2) as Apellidos, username, estado_idestado from Usuario as u
+		inner join Tipousuario as t on t.idtipousuario=u.tipousuario_idtipousuario";
+		
+		$resultado= sqlsrv_query($conexion,$sql);
 	}
 
 

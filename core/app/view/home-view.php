@@ -27,7 +27,7 @@
           <div class="small-box bg-purple">
           
             <div class="inner">
-
+            <h3><?php echo count(UserData::getAll());?></h3>
               <p>Usuarios</p>
             </div>
             <div class="icon">
