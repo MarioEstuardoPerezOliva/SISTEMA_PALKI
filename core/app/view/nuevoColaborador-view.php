@@ -10,7 +10,7 @@
       <input type="text" name="dpi" class="form-control" id="dpi" placeholder="DPI">
     </div>
   </div>
-		<form class="form-horizontal" method="post" id="addproduct" action="index.php?view=agregarColaborador" role="form">
+
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Primer Nombre*</label>
     <div class="col-md-6">

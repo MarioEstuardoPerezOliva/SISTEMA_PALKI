@@ -54,8 +54,7 @@ $(document).ready(function() {
 
 $conexion =Database::getCon();
 
-$sql = "select t.tipousuario,concat(u.nombre1,' ',u.nombre2) as Nombres, concat(u.apellido1,' ',u.apellido2) as Apellidos, username, estado_idestado from Usuario as u
-inner join Tipousuario as t on t.idtipousuario=u.tipousuario_idtipousuario";
+$sql = "select concat(u.nombre1,' ',u.nombre2) as Nombres, concat(u.apellido1,' ',u.apellido2) as Apellidos, username, estado_idestado from Usuario as u";
 
 $resultado= sqlsrv_query($conexion,$sql);
 
@@ -68,7 +67,8 @@ while($fila = sqlsrv_fetch_array($resultado)){
                 <td><?php echo $fila['Apellidos'];?></td>
                 <td><?php echo $fila['username'];?></td>
 				        <td><?php echo $fila['estado_idestado'];?></td>
-        <td style="width:30px;"><a href="index.php?view=editarUsuario&idusuario=<?php echo $fila->idusuario;?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a><a style="width:30px;"><a href="index.php?view=eliminaUsuario&idusuario=<?php echo $fila->idusuario;?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
+        <td> <a href="index.php?view=editarUsuario" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
+		<a ><a href="index.php?view=eliminaUsuario" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
             </tr>
 
             <?php }; ?>          

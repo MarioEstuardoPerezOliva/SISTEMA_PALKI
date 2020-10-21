@@ -1,22 +1,27 @@
 <?php
 
-if(count($_POST)>0){
-	$is_admin=0;
-	if(isset($_POST["is_admin"])){$is_admin=1;}
-	$user = new UserData();
-	$user->nombre1 = $_POST["nombre1"];
-	$user->nombre2 = $_POST["nombre2"];
-	$user->apellido1 = $_POST["apellido1"];
-	$user->apellido2 = $_POST["apellido2"];
-	$user->username = $_POST["username"];
-	$user->is_admin=$is_admin;
-	$user->password = sha1(md5($_POST["password"]));
-	$user->add();
+	$nombre1 = $_POST["nombre1"];
+	$nombre2 = $_POST["nombre2"];
+	$apellido1 = $_POST["apellido1"];
+	$apellido2 = $_POST["apellido2"];
+	$username = $_POST["username"];
+	$password = $_POST["password"];
 
-print "<script>window.location='index.php?view=usuario';</script>";
+if( isset($username) && isset($password) ){
 
-
+    aniadir($nombre1,$nombre2,$apellido1,$apellido2,$username,$password);   
+    print "<script>window.location='index.php?view=usuario2';</script>";
 }
 
+function aniadir($nombre1,$nombre2,$apellido1,$apellido2,$username,$password){
+   
+    $conexion=Database::getCon();
+    $sql = "insert into Usuario (nombre1,nombre2,apellido1,apellido2,username,password) 
+    values ('".$nombre1."','".$nombre2."','".$apellido1."','".$apellido2."','".$username."','".$password."')";
+    
+    $resultado = sqlsrv_query($conexion,$sql);  
+
+    return $resultado;
+}
 
 ?>
