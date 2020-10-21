@@ -2,6 +2,14 @@
 	<div class="col-md-12">
 	<h1>Nuevo Colaborador</h1>
 	<br>
+  <form class="form-horizontal" method="post" id="addproduct" action="index.php?view=agregarColaborador" role="form">
+  <div class="form-group">
+
+    <label for="inputEmail1" class="col-lg-2 control-label">DPI*</label>
+    <div class="col-md-6">
+      <input type="text" name="dpi" class="form-control" id="dpi" placeholder="DPI">
+    </div>
+  </div>
 		<form class="form-horizontal" method="post" id="addproduct" action="index.php?view=agregarColaborador" role="form">
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Primer Nombre*</label>
@@ -31,7 +39,7 @@
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Edad*</label>
     <div class="col-md-6">
-      <input type="text" name="edad" class="form-control" required id="edad" placeholder="Edad">
+      <input type="text" name="edad" class="form-control" required id="edad" placeholder="20">
     </div>
   </div>
 
@@ -42,15 +50,15 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Direccion*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Dirección*</label>
     <div class="col-md-6">
-      <input type="text" name="address1" class="form-control" required id="address1" placeholder="Direccion">
+      <input type="text" name="direccion" class="form-control" required id="direccion" placeholder="Direccion">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Genero*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Género*</label>
     <div class="col-md-6">
-      <input type="text" name="genero" class="form-control" id="genero" placeholder="Masculino / Femenina">
+      <input type="text" name="genero" class="form-control" id="genero" placeholder="Masculino / Femenino">
     </div>
   </div>
   <div class="form-group">
@@ -62,18 +70,9 @@
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Email*</label>
     <div class="col-md-6">
-      <input type="text" name="email1" class="form-control" id="email1" placeholder="Email">
+      <input type="text" name="email" class="form-control" id="email" placeholder="ejemplo@ejemplo.com">
     </div>
   </div>
-
-  <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Telefono*</label>
-    <div class="col-md-6">
-      <input type="text" name="phone1" class="form-control" id="phone1" placeholder="Telefono">
-    </div>
-  </div>
-
-
 
   <p class="alert alert-warning">* Campos obligatorios</p>
 

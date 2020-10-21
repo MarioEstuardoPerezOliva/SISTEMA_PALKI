@@ -5,17 +5,20 @@ class UserData {
 
 
 	public function Userdata(){
-		$this->nombre = "";
-		$this->apellido = "";
-		$this->email = "";
+		$this->id = "";
+		$this->nombre1 = "";
+		$this->nombre2 = "";
+		$this->apellido1 = "";
+		$this->apellido2 = "";
+		$this->username = "";
 		$this->image = "";
 		$this->password = "";
 		$this->created_at = "NOW()";
 	}
 
 	public function add(){
-		$sql = "insert into Usuarios (nombre,apellido,username,email,is_admin,password,created_at) ";
-		$sql = "value (\"$this->nombre\",\"$this->apellido\",\"$this->username\",\"$this->email\",\"$this->is_admin\",\"$this->password\",$this->created_at)";
+		$sql = "insert into Usuarios (nombre1,nombre2,apellido1,apellido2,username,password,is_admin,created_at) ";
+		$sql = "value (\"$this->nombre1\",\"$this->nombre2\",\"$this->apellido1\",\"$this->apellido2\",\"$this->username\",\"$this->password\",\"$this->is_admin\",$this->created_at)";
 		Executor::doit($sql);
 	}
 
@@ -56,9 +59,12 @@ class UserData {
 
 
 	public static function getAll(){
-		$sql = "select * from ".self::$tablename;
-		$query = Executor::doit($sql);
-		return Model::many($query[0],new UserData());
+		$con = Database::getCon();
+		if($con !== false ){
+			$sql = "select * from ".self::$tablename;
+			$query = sqlsrv_query($con,$sql);		
+		}
+		return $query;
 	}
 
 

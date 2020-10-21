@@ -12,13 +12,15 @@
     <link href="plugins/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <link href="plugins/dist/css/skins/skin-green.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
-
-
-          <script src="plugins/jquery/jquery-2.1.4.min.js"></script>
+    
+    <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  
+<script src="plugins/jquery/jquery-2.1.4.min.js"></script>
 <script src="plugins/morris/raphael-min.js"></script>
 <script src="plugins/morris/morris.js"></script>
-  <link rel="stylesheet" href="plugins/morris/morris.css">
-  <link rel="stylesheet" href="plugins/morris/example.css">
+<link rel="stylesheet" href="plugins/morris/morris.css">
+<link rel="stylesheet" href="plugins/morris/example.css">
           <script src="plugins/jspdf/jspdf.min.js"></script>
           <script src="plugins/jspdf/jspdf.plugin.autotable.js"></script>
           <?php if(isset($_GET["view"]) && $_GET["view"]=="sell"):?>
@@ -105,7 +107,7 @@
             <li class="treeview">
               <a href="#"><i class='fa fa-users'></i> <span>Colaboradores</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="./?view=colaborador">Colaboradores</a></li>
+                <li><a href="./?view=users">Colaboradores</a></li>
               </ul>
             </li>
 
@@ -113,14 +115,14 @@
             <li class="treeview">
               <a href="#"><i class='fa fa-area-chart'></i> <span>Tareas/Actividad</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="./?view=inventary">Actividades</a></li>
+                <li><a href="./?view=usuarios">Actividades</a></li>
 
               </ul>
             </li>
                        <li class="treeview">
               <a href="#"><i class='fa fa-file-text-o'></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="./?view=reports">Actividad</a></li>
+                <li><a href="./?view=usuario">Actividad</a></li>
 
               </ul>
             </li>
@@ -129,7 +131,7 @@
             <li class="treeview">
               <a href="#"><i class='fa fa-cog'></i> <span>Administración</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="./?view=usuario">Usuarios</a></li>
+                <li><a href="./?view=Usuario2">Usuarios</a></li>
               </ul>
             </li>
           <?php endif;?>
@@ -198,7 +200,32 @@
 
     <script src="plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
+<!-- script de tabla-->
+
+<script src="js/jquery.dataTables.min.js"></script>
+            <script src="js/dataTables.material.min.js"></script>
+           
+            <script>
+                $(document).ready(function() {
+                $('#tbusuarios').DataTable( {
+                    autoWidth: false,
+                    columnDefs: [
+                        {
+                            targets: ['_all'],
+                            className: 'mdc-data-table__cell'
+                        }
+                    ]
+                } );
+            } );
+            </script>
+            <!-- cierre script de tabla-->
+<script>
  
     <script type="text/javascript">
       $(document).ready(function(){
@@ -230,10 +257,25 @@
         });
       });
     </script>
-    <!-- Optionally, you can add Slimscroll and FastClick plugins.
-          Both of these plugins are recommended to enhance the
-          user experience. Slimscroll is required when using the
-          fixed layout. -->
+
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": true,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true,
+      "responsive": true,
+    });
+  });
+</script>
+
   </body>
 </html>
 
