@@ -1,32 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">
+	<link rel="stylesheet" type="text/css" href="/media/css/site-examples.css?_=6a23f3bca2453d0655063d05483e97a4">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.dataTables.min.css">
+	<style type="text/css" class="init">
+	
+	</style>
+	
+	<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"></script>
+	<script type="text/javascript" class="init">
+	
+
+$(document).ready(function() {
+	$('table.display').DataTable( {
+		fixedHeader: {
+			header: true,
+			footer: true
+		}
+	} );
+} );
+
+
+</script>
+</head>
+<body class="wide comments example">
+
+
 <div class="row">
 	<div class="col-md-12">
-<div class="btn-group pull-right">
-<a href="index.php?view=nuevoColaborador" class="btn btn-danger"><i class='fa fa-user'></i> Nuevo Colaborador</a>
-<div class="btn-group pull-right">
+	<a href="index.php?view=nuevoColaborador" class="btn btn-danger"><i class='fa fa-user'></i> Nuevo Colaborador</a>
+	<div class="btn-group pull-right">
   <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
     <i class="fa fa-download"></i> Descargar <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
     <li><a class="btn btn-success" href="report/providers-word.php">Word 2007 (.docx)</a></li>
   </ul>
-</div>
-<a href="index.php?view=buscarColaborador" class="btn btn-success"><i class='fa fa-user'></i> Buscar Colaborador</a>
-</div>
-		<h1>NÓMINA COLABORADORES</h1>
+</div>	
+	<h1>Nómina de Colaboradores</h1>
 <br>
- <!-- Main content -->
- <section class="content">
-   <div class="container-fluid">
-	 <div class="row">
-	   <div class="col-12">
-		 <div class="card">
-		   <div class="card-header">
-			 <h3 class="card-title">Colaboradores</h3>
-		   </div>
-		   <!-- /.card-header -->
-		   <div class="card-body">
-			 <table id="tbcolaboradores" class="table table-bordered table-striped">
-			 <thead>
+<div class="demo-html">
+<table id="" class="display" style="width:100%">
+<thead>
 		 <tr>
 		 	   <th>DPI</th>
 			   <th>Nombre Completo</th>
@@ -63,8 +83,8 @@ while($fila = sqlsrv_fetch_array($resultado)){
 			 <td><?php echo $fila['genero'];?></td>
 			 <td><?php echo $fila['telefono'];?></td>
 			 <td><?php echo $fila['is_active'];?></td>
-			 <td style="width:30px;"><a href="index.php?view=editarUsuario&idusuario=<?php echo $fila->idusuario;?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a></td>
-			 <td style="width:30px;"><a href="index.php?view=eliminaUsuario&idusuario=<?php echo $fila->idusuario;?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
+			 <td style="width:30px;"><a href="index.php?view=editarUsuario&idusuario=<?php echo $fila->idusuario;?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
+			 <a style="width:30px;"><a href="index.php?view=eliminaUsuario&idusuario=<?php echo $fila->idusuario;?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
 		 </tr>
 
 		 <?php }; ?>          
@@ -84,38 +104,21 @@ while($fila = sqlsrv_fetch_array($resultado)){
 		 </tr>
 	 </tfoot>
  </table>
-		   </div>
-		   <!-- /.card-body -->
-		 </div>
-		 <!-- /.card -->
-	   </div>
-	   <!-- /.col -->
-	 </div>
-	 <!-- /.row -->
-   </div>
-   <!-- /.container-fluid -->
- </section>
- </div>
- </div>
+				</div>
+        </div>
+        </div>
+	
 
+	<script type="text/javascript">
+				  var _gaq = _gaq || [];
+				  _gaq.push(['_setAccount', 'UA-365466-5']);
+				  _gaq.push(['_trackPageview']);
 
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- DataTables -->
-<script src="plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
-</script>
+				  (function() {
+					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				  })();
+	</script>
 </body>
 </html>
-
-<br><br><br><br><br><br><br><br><br><br>
-	</div>
-</div>

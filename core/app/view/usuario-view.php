@@ -14,15 +14,16 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="tbusuarios" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped">
 				<thead>
             <tr>
             <th>Tipo de Usuario</th>
 				  <th>Nombre Completo</th>
 				  <th>Apellidos</th>
 				  <th>Nombre de usuario</th>
-				  <th>Estado</th>
-				  <th>Acciones</th>
+          <th>Estado</th>
+          <th>Estado</th>
+          <th>Estado</th>
             </tr>
         </thead>
         <tbody>
@@ -58,8 +59,9 @@ while($fila = sqlsrv_fetch_array($resultado)){
 				  <th>Nombre Completo</th>
 				  <th>Apellidos</th>
 				  <th>Nombre de usuario</th>
-				  <th>Estado</th>
-				  <th>Acciones</th>
+          <th>Estado</th>
+          <th>Estado</th>
+          <th>Estado</th>
             </tr>
         </tfoot>
     </table>
@@ -74,7 +76,6 @@ while($fila = sqlsrv_fetch_array($resultado)){
       </div>
       <!-- /.container-fluid -->
     </section>
-	</div>
 	</div>
 
 

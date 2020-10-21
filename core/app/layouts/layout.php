@@ -115,14 +115,14 @@
             <li class="treeview">
               <a href="#"><i class='fa fa-area-chart'></i> <span>Tareas/Actividad</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="./?view=usuarios">Actividades</a></li>
+                <li><a href="./?view=usuario2">Actividades</a></li>
 
               </ul>
             </li>
                        <li class="treeview">
               <a href="#"><i class='fa fa-file-text-o'></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="./?view=usuario">Actividad</a></li>
+                <li><a href="./?view=usuarios">Actividad</a></li>
 
               </ul>
             </li>
@@ -131,7 +131,7 @@
             <li class="treeview">
               <a href="#"><i class='fa fa-cog'></i> <span>Administración</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="./?view=usuario">Usuarios</a></li>
+                <li><a href="./?view=usuario2">Usuarios</a></li>
               </ul>
             </li>
           <?php endif;?>
@@ -214,7 +214,7 @@
             <script>
                 $(document).ready(function() {
                 $('#tbusuarios').DataTable( {
-                    autoWidth: false,
+                    autoWidth: true,
                     columnDefs: [
                         {
                             targets: ['_all'],
@@ -260,11 +260,11 @@
 
 <script>
   $(function () {
-    $("#example1").DataTable({
+    $("#example11").DataTable({
       "responsive": true,
       "autoWidth": true,
     });
-    $('#example2').DataTable({
+    $('#example23').DataTable({
       "paging": true,
       "lengthChange": true,
       "searching": true,
