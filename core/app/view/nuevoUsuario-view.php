@@ -50,10 +50,11 @@
       pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="La contraseña debe tener al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter especial" >
     </div>
   </div>
-  <div class="field item form-group">
-  <label class="col-form-label col-md-3 col-sm-3  label-align">Tipo de Empaque<span class="required">*</span></label>
-   <div class="col-md-6 col-sm-6">
-   <select class="form-control" id=" idtipousuario" name=" idtipousuario">
+
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Tipo de Usuario*</label>
+    <div class="col-md-6">
+    <select class="form-control" id=" idtipousuario" name=" idtipousuario">
    <option value="0"> Seleccionar de la lista </option>;
 <?php
     $conexion =Database::getCon();
@@ -67,8 +68,29 @@
      
      <?php } ?>
   </select>
-                                                </div>
-                         </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Estado*</label>
+    <div class="col-md-6">
+    <select class="form-control" id=" idestado" name=" idestado">
+   <option value="0"> Seleccionar de la lista </option>;
+<?php
+    $conexion =Database::getCon();
+                                             
+    $query = "select * from Estado";
+    $resultado = sqlsrv_query($conexion,$query);    
+    while ($valores = sqlsrv_fetch_array($resultado)) {
+      // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+      ?>      
+       <option value="  <?php echo $valores['idestado'];?>"> <?php echo $valores['idestado']." - ".$valores['estado'];?>  </option>';
+     
+     <?php } ?>
+  </select>
+    </div>
+  </div>
+  
   <p class="alert alert-warning">* Campos obligatorios</p>
 
   <div class="form-group">
