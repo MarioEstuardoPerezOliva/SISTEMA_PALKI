@@ -43,7 +43,7 @@
             <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre Departamento<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="nombreTarea" placeholder="ex. Producción" required="required" />
+                                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" id="iddepartamento"name="iddepartamento" placeholder="ex. Producción" required="required" />
                                         </div>
 <br><br>
                                       
@@ -87,8 +87,8 @@
 $(document).ready(function() {
 $('table.display').DataTable( {
   fixedHeader: {
-    header: true,
-    footer: true
+    header: false,
+    footer: false
   }
 } );
 } );

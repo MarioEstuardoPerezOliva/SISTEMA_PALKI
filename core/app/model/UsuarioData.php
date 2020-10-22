@@ -5,22 +5,25 @@
 	$apellido1 = $_POST["apellido1"];
 	$apellido2 = $_POST["apellido2"];
 	$username = $_POST["username"];
-	$password = sha1(md5($_POST["password"]));
+	$password = $_POST["password"];
+	$tipousuario = $_POST["idtipousuario"];
+	$estado = $_POST["idestado"];
 
-if(isset ($nombre1) && isset($username) ){
-	aniadir($nombre1,$nombre2,$apellido,$apellido2,$username,$password);
-	print "<script>window.location='index.php?view=usuario2';</script>";
+if( isset($username) && isset($password) ){
+
+    aniadir($nombre1,$nombre2,$apellido1,$apellido2,$username,$password,$tipousuario,$estado);   
+    print "<script>window.location='index.php?view=usuario2';</script>";
 }
 
-function aniadir($nombre1,$nombre2,$apellido,$apellido2,$username,$password);{
-$conexion =Database::getCon();
+function aniadir($nombre1,$nombre2,$apellido1,$apellido2,$username,$password,$tipousuario,$estado){
+   
+    $conexion=Database::getCon();
+    $sql = "insert into Usuario (nombre1,nombre2,apellido1,apellido2,username,password, tipousuario_idtipousuario, estado_idestado) 
+    values ('".$nombre1."','".$nombre2."','".$apellido1."','".$apellido2."','".$username."','".$password."','".$tipousuario."','".$estado."')";
+    
+    $resultado = sqlsrv_query($conexion,$sql);  
 
-$sql = "INSERT INTO Usuario(nombre1, nombre2, apellido1,apellido2, username, password) 
-VALUES ('".$nombre1."','".$nombre2."', '".$apellido1."', '".$apellido2."','".$username."', '".$password."')";
-
-$resultado= sqlsrv_query($conexion,$sql);
-
-return $resultado;
+    return $resultado;
 }
 
 ?>

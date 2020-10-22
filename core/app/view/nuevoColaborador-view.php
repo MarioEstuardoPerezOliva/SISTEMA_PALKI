@@ -42,13 +42,6 @@
       <input type="text" name="edad" class="form-control" required id="edad" placeholder="20">
     </div>
   </div>
-
-  <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Fecha de Nacimiento*</label>
-    <div class="col-md-6">
-      <input type="text" name="fechanacimiento" class="form-control" required id="fechanacimiento" placeholder="DD-MM-AAAA">
-    </div>
-  </div>
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Dirección*</label>
     <div class="col-md-6">
@@ -70,7 +63,69 @@
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Email*</label>
     <div class="col-md-6">
-      <input type="text" name="email" class="form-control" id="email" placeholder="ejemplo@ejemplo.com">
+      <input type="email" name="email" class="form-control" id="email" placeholder="ejemplo@ejemplo.com">
+    </div>
+  </div>
+  
+  
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Finca*</label>
+    <div class="col-md-6">
+    <select class="form-control" id=" idfinca" name=" idfinca">
+   <option value="0"> Seleccionar de la lista </option>;
+<?php
+    $conexion =Database::getCon();
+                                             
+    $query = "select * from Finca";
+    $resultado = sqlsrv_query($conexion,$query);    
+    while ($valores = sqlsrv_fetch_array($resultado)) {
+      // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+      ?>      
+       <option value="  <?php echo $valores['idfinca'];?>"> <?php echo $valores['idfinca']." - ".$valores['nombrefinca']." - ".$valores['direccion'];?>  </option>';
+     
+     <?php } ?>
+  </select>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Departamento*</label>
+    <div class="col-md-6">
+    <select class="form-control" id=" iddepartamento" name=" iddepartamento">
+   <option value="0"> Seleccionar de la lista </option>;
+<?php
+    $conexion =Database::getCon();
+                                             
+    $query = "select * from Departamento";
+    $resultado = sqlsrv_query($conexion,$query);    
+    while ($valores = sqlsrv_fetch_array($resultado)) {
+      // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+      ?>      
+       <option value="  <?php echo $valores['iddepartamento'];?>"> <?php echo $valores['iddepartamento']." - ".$valores['nombredepartamento'];?>  </option>';
+     
+     <?php } ?>
+  </select>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Estado*</label>
+    <div class="col-md-6">
+    <select class="form-control" id=" idestado" name=" idestado">
+   <option value="0"> Seleccionar de la lista </option>;
+<?php
+    $conexion =Database::getCon();
+                                             
+    $query = "select * from Estado";
+    $resultado = sqlsrv_query($conexion,$query);    
+    while ($valores = sqlsrv_fetch_array($resultado)) {
+      // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+      ?>      
+       <option value="  <?php echo $valores['idestado'];?>"> <?php echo $valores['idestado']." - ".$valores['estado'];?>  </option>';
+     
+     <?php } ?>
+  </select>
     </div>
   </div>
 

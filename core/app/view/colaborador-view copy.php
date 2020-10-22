@@ -27,13 +27,17 @@
 			 <table id="tbcolaboradores" class="table table-bordered table-striped">
 			 <thead>
 		 <tr>
-		 	   <th>DPI</th>
+		 	   <th>Código</th>
+				<th>DPI</th>
 			   <th>Nombre Completo</th>
 			   <th>Apellidos</th>
 			   <th>Edad</th>
 			   <th>Dirección</th>
 			   <th>Género</th>
 			   <th>Teléfono</th>
+			   <th>Email</th>
+			   <th>Finca</th>
+			   <th>Departamento</th>
 			   <th>Estado</th>
 			   <th>Acciones</th>
 		 </tr>
@@ -45,8 +49,12 @@
 
 $conexion =Database::getCon();
 
-$sql = "select c.dpi,concat(c.nombre1,' ',c.nombre2) as Nombres, concat(c.apellido1,' ',c.apellido2) as Apellidos, 
-c.edad, c.direccion,c.genero, c.telefono, c.is_active from Colaborador as c";
+$sql = "
+select c.codigocolaborador,c.dpi,concat(c.nombre1,' ',c.nombre2) as Nombres, concat(c.apellido1,' ',c.apellido2) as Apellidos, edad, c.direccion, genero, telefono,  email, nombrefinca,nombredepartamento, estado
+from Colaborador as c
+left join Finca as f on f.idfinca=c.finca_idfinca
+left join Departamento as d on d.iddepartamento = c.departamento_iddepartamento
+left join Estado as e on e.idestado = c.estado_idestado";
 
 $resultado= sqlsrv_query($conexion,$sql);
 
@@ -54,6 +62,7 @@ while($fila = sqlsrv_fetch_array($resultado)){
 
 ?>
 		 <tr>
+			 <td> <?php echo $fila['codigocolaborador'];?> </td>
 			 <td> <?php echo $fila['dpi'];?> </td>
 			 <td><?php echo $fila['Nombres'];?></td>
 			 <td><?php echo $fila['Apellidos'];?></td>
@@ -61,22 +70,29 @@ while($fila = sqlsrv_fetch_array($resultado)){
 			 <td><?php echo $fila['direccion'];?></td>
 			 <td><?php echo $fila['genero'];?></td>
 			 <td><?php echo $fila['telefono'];?></td>
-			 <td><?php echo $fila['is_active'];?></td>
-			 <td style="width:30px;"><a href="index.php?view=editarUsuario&idusuario=<?php echo $fila->idusuario;?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a></td>
-			 <td style="width:30px;"><a href="index.php?view=eliminaUsuario&idusuario=<?php echo $fila->idusuario;?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
-		 </tr>
+			 <td><?php echo $fila['email'];?></td>
+			 <td><?php echo $fila['finca'];?></td>
+			 <td><?php echo $fila['departamento'];?></td>
+			 <td><?php echo $fila['estado'];?></td>
+			 <td> <a href="index.php?view=editarUsuario" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
+		<a ><a href="index.php?view=eliminaUsuario" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
+            </tr>
 
 		 <?php }; ?>          
 	 </tbody>
 	 <tfoot>
 		 <tr>
-		 <th>DPI</th>
+		 <th>Código</th>
+				<th>DPI</th>
 			   <th>Nombre Completo</th>
 			   <th>Apellidos</th>
 			   <th>Edad</th>
 			   <th>Dirección</th>
 			   <th>Género</th>
 			   <th>Teléfono</th>
+			   <th>Email</th>
+			   <th>Finca</th>
+			   <th>Departamento</th>
 			   <th>Estado</th>
 			   <th>Acciones</th>
 		 </tr>

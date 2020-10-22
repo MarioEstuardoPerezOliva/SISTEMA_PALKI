@@ -19,8 +19,8 @@
 $(document).ready(function() {
 	$('table.display').DataTable( {
 		fixedHeader: {
-			header: true,
-			footer: true
+			header: false,
+			footer: false
 		}
 	} );
 } );
@@ -35,7 +35,7 @@ $(document).ready(function() {
 		<h1>Lista de Usuarios</h1>
 <br>
 				<div class="demo-html">
-					<table id="" class="display" style="width:100%">
+					<table id="" class="display" style="width:100%" border="1">
           <thead>
             <tr>
             <th>Tipo de Usuario</th>

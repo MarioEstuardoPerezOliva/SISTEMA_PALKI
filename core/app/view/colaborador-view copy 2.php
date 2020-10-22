@@ -1,31 +1,30 @@
+<div class="row">
+	<div class="col-md-12">
+<div class="btn-group pull-right">
+<a href="index.php?view=nuevoColaborador" class="btn btn-danger"><i class='fa fa-user'></i> Nuevo Colaborador</a>
+<div class="btn-group pull-right">
+  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+    <i class="fa fa-download"></i> Descargar <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a class="btn btn-success" href="report/providers-word.php">Word 2007 (.docx)</a></li>
+  </ul>
+</div>
 
-<div class="right_col" role="main">
-                <div class="">
-                    <div class="page-title">
-                        <div class="title_left">
-                            <h3>Tabla de Usuarios</h3>
-                        </div>                        
-                    </div>
-                    <div class="clearfix"></div>
-
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12" align="center">
-                            <div class="x_panel">
-
-                            <script>
-$(document).ready(function() {
-	$('#example').DataTable( {
-		scrollY:        '50vh',
-		scrollCollapse: false,
-		paging:         true
-	} );
-} );
-
-	</script>
-
-<body class="wide comments example">
-				<div class="demo-html">
-					<table id="example" class="display" style="width:100%">
+		<h1>NÓMINA COLABORADORES</h1>
+<br>
+ <!-- Main content -->
+ <section class="content">
+   <div class="container-fluid">
+	 <div class="row">
+	   <div class="col-12">
+		 <div class="card">
+		   <div class="card-header">
+			 <h3 class="card-title">Colaboradores</h3>
+		   <!-- /.card-header -->
+		   <div class="card-body">
+			 <table id="tbcolaboradores" class="table table-bordered table-striped">
+			 <thead>
 		 <tr>
 		 	   <th>Código</th>
 				<th>DPI</th>
@@ -71,8 +70,8 @@ while($fila = sqlsrv_fetch_array($resultado)){
 			 <td><?php echo $fila['genero'];?></td>
 			 <td><?php echo $fila['telefono'];?></td>
 			 <td><?php echo $fila['email'];?></td>
-			 <td><?php echo $fila['nombrefinca'];?></td>
-			 <td><?php echo $fila['nombredepartamento'];?></td>
+			 <td><?php echo $fila['finca'];?></td>
+			 <td><?php echo $fila['departamento'];?></td>
 			 <td><?php echo $fila['estado'];?></td>
 			 <td> <a href="index.php?view=editarUsuario" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
 		<a ><a href="index.php?view=eliminaUsuario" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
@@ -99,30 +98,38 @@ while($fila = sqlsrv_fetch_array($resultado)){
 		 </tr>
 	 </tfoot>
  </table>
+		   </div>
+		   <!-- /.card-body -->
+		 </div>
+		 <!-- /.card -->
+	   </div>
+	   <!-- /.col -->
+	 </div>
+	 <!-- /.row -->
+   </div>
+   <!-- /.container-fluid -->
+ </section>
+ </div>
+ </div>
 
-            <!-- script de tabla-->
 
-            <script src="dist/jquery-3.5.1.js"></script>
-            <script src="dist/js/js/jquery.dataTables.min.js"></script>
-           
-            <script>
-                $(document).ready(function() {
-                $('#tbusuario3').DataTable( {
-                    autoWidth: false,
-                    columnDefs: [
-                        {
-                            targets: ['_all'],
-                            className: 'mdc-data-table__cell'
-                        }
-                    ]
-                } );
-            } );
-            </script>
-            <!-- cierre script de tabla-->
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+</script>
+</body>
+</html>
 
-                           
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<br><br><br><br><br><br><br><br><br><br>
+	</div>
+</div>

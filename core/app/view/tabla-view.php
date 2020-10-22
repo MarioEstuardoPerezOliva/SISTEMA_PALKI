@@ -103,7 +103,24 @@ while($fila = sqlsrv_fetch_array($resultado)){
 
 		 <?php }; ?>          
 	 </tbody>
-
+	 <tfoot>
+		 <tr>
+		 <th>Código</th>
+				<th>DPI</th>
+			   <th>Nombre Completo</th>
+			   <th>Apellidos</th>
+			   <th>Edad</th>
+			   <th>Dirección</th>
+			   <th>Género</th>
+			   <th>Teléfono</th>
+			   <th>Email</th>
+			   <th>Finca</th>
+			   <th>Departamento</th>
+			   <th>Estado</th>
+			   <th>Acciones</th>
+		 </tr>
+		 </tr>
+	 </tfoot>
  </table>
 				</div>
         </div>
