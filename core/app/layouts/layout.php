@@ -139,6 +139,7 @@
                 <li><a href="./?view=usuario2">Usuarios</a></li>
                 <li><a href="./?view=departamento">Departamento</a></li>
                 <li><a href="./?view=finca">Finca</a></li>
+                <li><a href="./?view=planta">Planta</a></li>
                 <li><a href="./?view=medidaPlanta">Medida Planta</a></li>
 
               </ul>

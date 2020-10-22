@@ -37,21 +37,28 @@
   <form class="form-horizontal" method="post" id="aggplanta" action="index.php?view=agregarPlanta" role="form">
   <div class="form-group">
 
-    <label for="inputEmail1" class="col-lg-2 control-label">Mendida*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Nombre de la Planta*</label>
     <div class="col-md-6">
-      <input type="text" name="medidaplanta" class="form-control" id="medidaplanta" placeholder="ex. 10 "required="required">
+      <input type="text" name="nombreplanta" class="form-control" id="nombreplanta" placeholder="ex. Izote "required="required">
     </div>
   </div>
-
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Unidad de Medida*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Medida*</label>
     <div class="col-md-6">
-    <select class="form-control" id=" unidadmedida" name=" unidadmedida">
-   <option value=""> Seleccionar de la lista </option>;
-        <option value="Centimetro (s)">Centimetro (s)</option>
-        <option value="Pulgada (s)">Pulgada (s)</option>
-        <option value="Metro (s)">Metro (s)</option>
-      </select>
+    <select class="form-control" id=" idmedidaplanta" name=" idmedidaplanta">
+   <option value="0"> Seleccionar de la lista </option>;
+<?php
+    $conexion =Database::getCon();
+                                             
+    $query = "select * from Medidaplanta";
+    $resultado = sqlsrv_query($conexion,$query);    
+    while ($valores = sqlsrv_fetch_array($resultado)) {
+      // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+      ?>      
+       <option value="  <?php echo $valores['idmedidaplanta'];?>"> <?php echo $valores['medidaplanta']." - ".$valores['unidadmedida'];?>  </option>';
+     
+     <?php } ?>
+  </select>
     </div>
   </div>
 
@@ -98,14 +105,15 @@ $('table.display').DataTable( {
 <body class="wide comments example">
 <div class="row">
 <div class="col-md-12">
-  <h1>Medida Planta</h1>
+  <h1>Planta</h1>
 <br>
       <div class="demo-html">
         <table id="" class="display" style="width:100%" border="1">
         <thead>
           <tr>
           <th>Código</th>
-        <th>Medida Planta</th>
+        <th>Nombre Planta</th>
+        <th>Medida </th>
         <th>Acciones</th>
 
           </tr>
@@ -117,7 +125,9 @@ $('table.display').DataTable( {
 
 $conexion =Database::getCon();
 
-$sql = "select m.idmedidaplanta as codigo, concat(m.medidaplanta,' ',m.unidadmedida) as medida from Medidaplanta as m";
+$sql = "select idplanta as codigo, nombreplanta, concat(m.medidaplanta,' ',m.unidadmedida) as medida
+from Planta as p
+inner join Medidaplanta as  m on m.idmedidaplanta = p.medidaplanta_idmedidaplanta";
 
 $resultado= sqlsrv_query($conexion,$sql);
 
@@ -126,6 +136,7 @@ while($fila = sqlsrv_fetch_array($resultado)){
 ?>
           <tr>
               <td> <?php echo $fila['codigo'];?> </td>
+              <td><?php echo $fila['nombreplanta'];?></td>
               <td><?php echo $fila['medida'];?></td>
               <td> <a href="index.php?view=editarUsuario" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
 		          <a ><a href="index.php?view=eliminaUsuario" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
@@ -136,7 +147,8 @@ while($fila = sqlsrv_fetch_array($resultado)){
       <tfoot>
           <tr>
           <th>Código</th>
-        <th>Medida Planta</th>
+        <th>Nombre Planta</th>
+        <th>Medida </th>
         <th>Acciones</th>
           </tr>
       </tfoot>
