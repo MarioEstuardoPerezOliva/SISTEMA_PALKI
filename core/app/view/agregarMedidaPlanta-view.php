@@ -1,20 +1,20 @@
 <?php
 
-    $nombrefinca = $_POST["nombrefinca"];
-    $direccionfinca = $_POST["direccion"];
+    $medidaplanta = $_POST["medidaplanta"];
+    $unidadmedida = $_POST["unidadmedida"];
 
 
-if( isset($nombrefinca) && isset($direccionfinca) ){
+if( isset($medidaplanta) && isset($unidadmedida) ){
 
-    aniadir($nombrefinca,$direccionfinca);   
-    print "<script>window.location='index.php?view=finca';</script>";
+    aniadir($medidaplanta,$unidadmedida);   
+    print "<script>window.location='index.php?view=medidaPlanta';</script>";
 }
 
-function aniadir($nombrefinca,$direccionfinca){
+function aniadir($medidaplanta,$unidadmedida){
    
     $conexion=Database::getCon();
-    $sql = "insert into Finca (nombrefinca,direccion) 
-    values ('".$nombrefinca."','".$direccionfinca."')";
+    $sql = "insert into Medidaplanta (medidaplanta,unidadmedida) 
+    values ('".$medidaplanta."','".$unidadmedida."')";
     
     $resultado = sqlsrv_query($conexion,$sql);  
 

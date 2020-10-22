@@ -21,7 +21,7 @@
             <!-- Default box -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Agregar Medida Planta</h3>
+                <h3 class="card-title">Agregar Planta</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -34,7 +34,7 @@
   <div class="row">
 	<div class="col-md-12">
 	<br>
-  <form class="form-horizontal" method="post" id="aggplanta" action="index.php?view=agregarMedidaPlanta" role="form">
+  <form class="form-horizontal" method="post" id="aggplanta" action="index.php?view=agregarPlanta" role="form">
   <div class="form-group">
 
     <label for="inputEmail1" class="col-lg-2 control-label">Mendida*</label>
