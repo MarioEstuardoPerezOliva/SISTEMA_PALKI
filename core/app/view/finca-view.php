@@ -21,7 +21,7 @@
             <!-- Default box -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Agregar Departamento</h3>
+                <h3 class="card-title">Agregar Finca</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -31,40 +31,35 @@
               <div class="card-body">
               <div class="row">
 	<!-- page content --> 
- <div class="col-md-6">
-            <!-- general form elements disabled -->
-            <div class="card card-red">
-              <div class="card-header">
-              </div>
-           <div class="right_col" role="main" >
-            <div class="x_content">
-            <form action="index.php?view=agregarDepartamento"  method="post" id="ingresar"  role="form">
-            <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre Departamento<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" id="nombredepartamento"name="nombredepartamento" placeholder="ex. Producción" required="required" />
-                                        </div>
-<br><br>
-                                      
-                                        <div class="ln_solid">
-                                            <div class="form-group">
-                                                <div class="col-md-6 offset-md-3">
-                                                    <button type='submit' class="btn btn-primary">Crear</button>
-                                                    <button type='reset' class="btn btn-success">Cancelar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                </div>
-                </div>
-            </form>
-</div>
-              </div>
+  <div class="row">
+	<div class="col-md-12">
+	<br>
+  <form class="form-horizontal" method="post" id="aggfinca" action="index.php?view=agregarFinca" role="form">
+  <div class="form-group">
 
-            </div>
-            <!-- /.card -->
-          </div>
-        </div>
-      </div>
+    <label for="inputEmail1" class="col-lg-2 control-label">Nombre Finca</label>
+    <div class="col-md-6">
+      <input type="text" name="nombrefinca" class="form-control" id="nombrefinca" placeholder="Nombre Finca"required="required">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Dirección Finca*</label>
+    <div class="col-md-6">
+      <input type="text" name="direccion" class="form-control" id="direccion" placeholder="Dirección Finca"required="required">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <button type="submit" class="btn btn-success"><i class='glyphicon glyphicon'></i> Agregar</button>
+      <button type="reset" class="btn btn-danger"><i class='glyphicon glyphicon'></i> Cancelar</button>
+    </div>
+  </div>
+
+            </form>
+
+
     </section>
  
         <head>
@@ -98,14 +93,15 @@ $('table.display').DataTable( {
 <body class="wide comments example">
 <div class="row">
 <div class="col-md-12">
-  <h1>Lista Departamentos</h1>
+  <h1>Finca</h1>
 <br>
       <div class="demo-html">
         <table id="" class="display" style="width:100%" border="1">
         <thead>
           <tr>
           <th>Código</th>
-        <th>Nombre Departamento</th>
+        <th>Nombre Finca</th>
+        <th>Dirección Finca</th>
         <th>Acciones</th>
 
           </tr>
@@ -117,7 +113,7 @@ $('table.display').DataTable( {
 
 $conexion =Database::getCon();
 
-$sql = "select iddepartamento as codigo, nombredepartamento as departamento from Departamento";
+$sql = "select idfinca as codigo, nombrefinca, direccion from Finca";
 
 $resultado= sqlsrv_query($conexion,$sql);
 
@@ -126,7 +122,8 @@ while($fila = sqlsrv_fetch_array($resultado)){
 ?>
           <tr>
               <td> <?php echo $fila['codigo'];?> </td>
-              <td><?php echo $fila['departamento'];?></td>
+              <td><?php echo $fila['nombrefinca'];?></td>
+              <td><?php echo $fila['direccion'];?></td>
               <td> <a href="index.php?view=editarUsuario" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
 		          <a ><a href="index.php?view=eliminaUsuario" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
             </tr>
@@ -135,8 +132,9 @@ while($fila = sqlsrv_fetch_array($resultado)){
       </tbody>
       <tfoot>
           <tr>
-        <th>Código</th>
-        <th>Nombre Departamento</th>
+          <th>Código</th>
+        <th>Nombre Finca</th>
+        <th>Dirección Finca</th>
         <th>Acciones</th>
           </tr>
       </tfoot>
@@ -157,6 +155,8 @@ while($fila = sqlsrv_fetch_array($resultado)){
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 </script>
+</body>
+
 
 
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

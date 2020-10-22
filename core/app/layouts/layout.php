@@ -138,6 +138,7 @@
               <ul class="treeview-menu">
                 <li><a href="./?view=usuario2">Usuarios</a></li>
                 <li><a href="./?view=departamento">Departamento</a></li>
+                <li><a href="./?view=finca">Finca</a></li>
               </ul>
             </li>
           <?php endif;?>
