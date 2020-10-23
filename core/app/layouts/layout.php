@@ -141,6 +141,7 @@
                 <li><a href="./?view=finca">Finca</a></li>
                 <li><a href="./?view=planta">Planta</a></li>
                 <li><a href="./?view=medidaPlanta">Medida Planta</a></li>
+                <li><a href="./?view=tarea">Tareas</a></li>
 
               </ul>
             </li>

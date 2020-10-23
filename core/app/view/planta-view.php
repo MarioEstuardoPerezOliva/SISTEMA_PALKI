@@ -169,9 +169,6 @@ while($fila = sqlsrv_fetch_array($resultado)){
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 </script>
-</body>
-
-
 
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- overlayScrollbars -->
