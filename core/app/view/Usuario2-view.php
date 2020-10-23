@@ -30,12 +30,12 @@ $(document).ready(function() {
 </head>
 <body class="wide comments example">
 <div class="row">
-	<div class="col-md-12">
-	<a href="index.php?view=nuevoUsuario" class="btn btn-warning pull-right"><i class='glyphicon glyphicon-user'></i> Nuevo Usuario</a>
-		<h1>Lista de Usuarios</h1>
+<div class="col-md-12">
+<a href="index.php?view=nuevoUsuario" class="btn btn-warning pull-right"><i class='glyphicon glyphicon-user'></i> Nuevo Usuario</a>
+<h1>Lista de Usuarios</h1>
 <br>
-				<div class="demo-html">
-					<table id="" class="display" style="width:100%" border="1">
+<div class="demo-html">
+<table id="" class="display" style="width:100%" border="1">
           <thead>
             <tr>
             <th>Tipo de Usuario</th>

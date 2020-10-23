@@ -112,7 +112,7 @@
             <li class="treeview">
               <a href="#"><i class='fa fa-users'></i> <span>Colaboradores</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="./?view=colaborador">Colaboradores</a></li>
+                <li><a href="./?view=colaboradores">Colaboradores</a></li>
               </ul>
             </li>
 
@@ -120,7 +120,7 @@
             <li class="treeview">
               <a href="#"><i class='fa fa-area-chart'></i> <span>Tareas/Actividad</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="./?view=tabla">Actividades</a></li>
+                <li><a href="./?view=actividad">Actividades</a></li>
 
               </ul>
             </li>

@@ -55,7 +55,7 @@
     <label for="inputEmail1" class="col-lg-2 control-label">Tipo de Usuario*</label>
     <div class="col-md-6">
     <select class="form-control" id=" idtipousuario" name=" idtipousuario">
-   <option value="0"> Seleccionar de la lista </option>;
+   <option selected disabled> Seleccionar de la lista </option>;
 <?php
     $conexion =Database::getCon();
                                              
@@ -75,7 +75,7 @@
     <label for="inputEmail1" class="col-lg-2 control-label">Estado*</label>
     <div class="col-md-6">
     <select class="form-control" id=" idestado" name=" idestado">
-   <option value="0"> Seleccionar de la lista </option>;
+   <option selected disabled> Seleccionar de la lista </option>;
 <?php
     $conexion =Database::getCon();
                                              

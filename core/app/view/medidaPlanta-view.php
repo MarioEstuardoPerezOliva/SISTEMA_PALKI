@@ -19,7 +19,7 @@
         <div class="row">
           <div class="col-12">
             <!-- Default box -->
-            <div class="card">
+            <div class="card skin-green-light">
               <div class="card-header">
                 <h3 class="card-title">Agregar Medida Planta</h3>
 
@@ -47,7 +47,7 @@
     <label for="inputEmail1" class="col-lg-2 control-label">Unidad de Medida*</label>
     <div class="col-md-6">
     <select class="form-control" id=" unidadmedida" name=" unidadmedida">
-   <option value=""> Seleccionar de la lista </option>;
+   <option selected disabled> Seleccionar de la lista </option>;
         <option value="Centimetro (s)">Centimetro (s)</option>
         <option value="Pulgada (s)">Pulgada (s)</option>
         <option value="Metro (s)">Metro (s)</option>

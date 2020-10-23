@@ -19,7 +19,7 @@
         <div class="row">
           <div class="col-12">
             <!-- Default box -->
-            <div class="card">
+            <div class="card alert alert-warning">
               <div class="card-header">
                 <h3 class="card-title">Agregar Departamento</h3>
 

@@ -1,79 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<script>
-$(document).ready(function() {
-	$('table.display').DataTable( {
-		fixedHeader: {
-			header: false,
-			footer: false
-		}
-	} );
-} );
-
-
-	</script>
-</head>
-<body class="wide comments example">
-<div class="row">
-	<div class="col-md-12">
-	<div class="btn-group pull-right">
-</div>
-		<h1>Nómina Colaboradores</h1>
-<br>
-				<div class="demo-html">
-					<table id="" class="display" style="width:100%" border="1" class="table table-responsive table-striped">
-					<thead>
-		 <tr>
-		 	   <th>Código</th>
-				<th>DPI</th>
-			   <th>Nombre Completo</th>
-			   <th>Apellidos</th>
-			   <th>Finca</th>
-			   <th>Departamento</th>
-			   <th>Estado</th>
-			   <th>Acciones</th>
-		 </tr>
-	 </thead>
-	 <tbody>
-
-<?php 
-
-
-$conexion =Database::getCon();
-
-$sql = "
-
-select c.codigocolaborador,c.dpi,concat(c.nombre1,' ',c.nombre2) as Nombres, concat(c.apellido1,' ',c.apellido2) as Apellidos,  nombrefinca,nombredepartamento, estado
-from Colaborador as c
-left join Finca as f on f.idfinca=c.finca_idfinca
-left join Departamento as d on d.iddepartamento = c.departamento_iddepartamento
-left join Estado as e on e.idestado = c.estado_idestado";
-
-$resultado= sqlsrv_query($conexion,$sql);
-
-while($fila = sqlsrv_fetch_array($resultado)){
-
-?>
-		 <tr>
-			 <td> <?php echo $fila['codigocolaborador'];?> </td>
-			 <td> <?php echo $fila['dpi'];?> </td>
-			 <td><?php echo $fila['Nombres'];?></td>
-			 <td><?php echo $fila['Apellidos'];?></td>
-			 <td><?php echo $fila['nombrefinca'];?></td>
-			 <td><?php echo $fila['nombredepartamento'];?></td>
-			 <td><?php echo $fila['estado'];?></td>
-			 <td> <a href="index.php?view=editarUsuario" class=" btn-xs"></a>
-		<a href="index.php?view=eliminaUsuario" class="btn btn-xs btn-success">Seleccionar</a></td>
-            </tr>
-
-		 <?php }; ?>          
-	 </tbody>
-
- </table>
-
-    <!-- Main content -->
-  <section class="content">
+   <!-- Main content -->
+   <section class="content">
       <div class="row">
         <div class="col-md-6">
           <div class="card alert alert-success">
@@ -81,7 +7,7 @@ while($fila = sqlsrv_fetch_array($resultado)){
               <center><h3 class="card-title">Asignar Actividad</h3></center>
             </div>
            <div class="card-body">
-            <form class="form-group" method="post" id="aggfinca" action="index.php?view=agregarFinca" role="form">
+            <form class="form-group" method="post" id="aggactividad" action="index.php?view=agregarActividad" role="form">
             <div class="form-group">
                 <label for="inputStatus">Seleccionar Colaborador</label>
                 <select class="form-control" id="codigocolaborador" name=" codigocolaborador">
@@ -101,7 +27,7 @@ while($fila = sqlsrv_fetch_array($resultado)){
               </div>
               <div class="form-group">
                 <label for="inputStatus">Seleccionar Tarea</label>
-                <select class="form-control" id=" tarea" name=" tarea">
+                <select class="form-control" id=" idtarea" name=" idtarea">
                   <option selected disabled> Seleccionar de la lista </option>;
                     <?php
                         $conexion =Database::getCon();
@@ -151,11 +77,9 @@ while($fila = sqlsrv_fetch_array($resultado)){
                         <?php } ?>
                       </select>
               </div>
-
-
               <div class="form-group">
-                <label for="inputName">Fecha Inicio</label>
-                <input type="date" id="fechainicio" class="form-control">
+              <label for="inputEmail1">Fecha Fin</label>
+              <input type="date" name="fechainicial" class="form-control" id="fechainicial" >
               </div>
               <div class="form-group">
                 <label for="inputStatus">Hora Inicio</label>
@@ -180,12 +104,12 @@ while($fila = sqlsrv_fetch_array($resultado)){
                 </select>
               </div>
               <div class="form-group">
-                <label for="inputName">Fecha Fin</label>
-                <input type="date" id="fechafin" class="form-control">
+              <label for="inputEmail1">Fecha Fin</label>
+              <input type="date" name="fechafinal" class="form-control" id="fechafinal" >
               </div>
               <div class="form-group">
                 <label for="inputStatus">Hora Fin</label>
-                <select class="form-control" id="horafin" name="horainico">
+                <select class="form-control" id="horafin" name="horafin">
                   <option selected disabled>Seleccionar Hora</option>
                   <option value="06:00 hrs">06:00 hrs</option>
                   <option value="07:00 hrs">07:00 hrs</option>
@@ -205,7 +129,6 @@ while($fila = sqlsrv_fetch_array($resultado)){
                   <option value="21:00 hrs">21:00 hrs</option>
                 </select>
               </div>
-
               <div class="form-group">
                 <button type="submit" class="btn btn-danger"><i class='glyphicon glyphicon-pencil'></i> Agregar Actividad</button>
               </div>
@@ -214,17 +137,8 @@ while($fila = sqlsrv_fetch_array($resultado)){
             </form>
 
       </div>
-      </div>       
-    </div>
-      </div>
+
 
       </div>
     </section>
     <!-- /.content -->
-
-</script>
-</body>
-</html>
-
-<br><br><br><br><br><br><br><br><br><br>
-	</div>

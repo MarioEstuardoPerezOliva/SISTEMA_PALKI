@@ -19,7 +19,7 @@
         <div class="row">
           <div class="col-12">
             <!-- Default box -->
-            <div class="card">
+            <div class="card alert alert-warning">
               <div class="card-header">
                 <h3 class="card-title">Agregar Planta</h3>
 
@@ -34,7 +34,7 @@
   <div class="row">
 	<div class="col-md-12">
 	<br>
-  <form class="form-horizontal" method="post" id="aggplanta" action="index.php?view=agregarPlanta" role="form">
+  <form class="form-horizontal" method="post" id="aggplanta" action="index.php?view=agregarPlanta" role="form"border="1">
   <div class="form-group">
 
     <label for="inputEmail1" class="col-lg-2 control-label">Nombre de la Planta*</label>

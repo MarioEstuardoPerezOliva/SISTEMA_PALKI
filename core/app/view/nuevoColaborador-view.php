@@ -72,7 +72,7 @@
     <label for="inputEmail1" class="col-lg-2 control-label">Finca*</label>
     <div class="col-md-6">
     <select class="form-control" id=" idfinca" name=" idfinca">
-   <option value="0"> Seleccionar de la lista </option>;
+   <option selected disabled> Seleccionar de la lista </option>;
 <?php
     $conexion =Database::getCon();
                                              
@@ -92,7 +92,7 @@
     <label for="inputEmail1" class="col-lg-2 control-label">Departamento*</label>
     <div class="col-md-6">
     <select class="form-control" id=" iddepartamento" name=" iddepartamento">
-   <option value="0"> Seleccionar de la lista </option>;
+   <option selected disabled> Seleccionar de la lista </option>;
 <?php
     $conexion =Database::getCon();
                                              
@@ -113,7 +113,7 @@
     <label for="inputEmail1" class="col-lg-2 control-label">Estado*</label>
     <div class="col-md-6">
     <select class="form-control" id=" idestado" name=" idestado">
-   <option value="0"> Seleccionar de la lista </option>;
+   <option selected disabled> Seleccionar de la lista </option>;
 <?php
     $conexion =Database::getCon();
                                              
