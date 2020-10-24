@@ -38,6 +38,7 @@ $(document).ready(function() {
 <table id="" class="display" style="width:100%" border="1">
           <thead>
             <tr>
+			<th>Código</th>
             <th>Tipo de Usuario</th>
 				  <th>Nombre Completo</th>
 				  <th>Apellidos</th>
@@ -54,7 +55,7 @@ $(document).ready(function() {
 
 $conexion =Database::getCon();
 
-$sql = "select t.tipousuario,concat(u.nombre1,' ',u.nombre2) as Nombres, concat(u.apellido1,' ',u.apellido2) as Apellidos, username, estado
+$sql = "select u.idusuario,t.tipousuario,concat(u.nombre1,' ',u.nombre2) as Nombres, concat(u.apellido1,' ',u.apellido2) as Apellidos, username, estado
 from Usuario as u
 left join Tipousuario as t on t.idtipousuario=u.tipousuario_idtipousuario
 left join Estado as e on e.idestado= u.estado_idestado";
@@ -65,19 +66,22 @@ while($fila = sqlsrv_fetch_array($resultado)){
 
 ?>
             <tr>
+				<td> <?php echo $fila['idusuario'];?> </td>
                 <td> <?php echo $fila['tipousuario'];?> </td>
                 <td><?php echo $fila['Nombres'];?></td>
                 <td><?php echo $fila['Apellidos'];?></td>
                 <td><?php echo $fila['username'];?></td>
-				        <td><?php echo $fila['estado'];?></td>
-        <td> <a href="index.php?view=editarUsuario" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
-		<a ><a href="index.php?view=eliminaUsuario" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
+				<td><?php echo $fila['estado'];?></td>
+        <td> <a href="index.php?view=editarUsuario2&idusuario=<?php echo $fila['idusuario'];?>"class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
+		<a ><a href="index.php?view=eliminarUsuario&idusuario=<?php echo $fila['idusuario'];?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
             </tr>
+
 
             <?php }; ?>          
         </tbody>
         <tfoot>
             <tr>
+			<th>Código</th>
             <th>Tipo de Usuario</th>
 				  <th>Nombre Completo</th>
 				  <th>Apellidos</th>

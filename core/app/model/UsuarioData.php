@@ -26,4 +26,5 @@ function aniadir($nombre1,$nombre2,$apellido1,$apellido2,$username,$password,$ti
     return $resultado;
 }
 
+
 ?>
