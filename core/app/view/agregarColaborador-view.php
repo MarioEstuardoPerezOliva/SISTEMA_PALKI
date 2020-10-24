@@ -17,7 +17,7 @@
 if( isset($dpi) && isset($nombre1) ){
 
 	aniadir($dpi,$nombre1,$nombre2,$apellido1,$apellido2,$edad,$direccion,$genero,$telefono,$email,$idfinca,$iddepartamento,$idestado);   
-    print "<script>window.location='index.php?view=colaborador';</script>";
+    print "<script>window.location='index.php?view=colaboradores';</script>";
 }
 
 function aniadir(	$dpi,

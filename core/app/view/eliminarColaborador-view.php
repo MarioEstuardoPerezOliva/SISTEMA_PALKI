@@ -1,7 +1,18 @@
 <?php
+eliminarColaborador($_GET["idcolaborador"]);
 
-$client = PersonData::getById($_GET["id"]);
-$client->del();
-Core::redir("./index.php?view=colaborador");
+
+
+function eliminarColaborador($id_colaborador){
+   
+    $conexion=Database::getCon();
+    $sql = "delete from Colaborador where codigocolaborador='".$id_colaborador."'";
+    $resultado = sqlsrv_query($conexion,$sql);  
+}
 
 ?>
+
+<script type="text/javascript">
+alert("Colaborador Eliminado Exitosamente");
+window.location='index.php?view=colaboradores';
+</script>

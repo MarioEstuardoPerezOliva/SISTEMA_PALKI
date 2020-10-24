@@ -32,6 +32,7 @@ $(document).ready(function() {
 					<table id="" class="display" style="width:100%" border="1" class="table table-responsive table-striped">
 					<thead>
 		 <tr>
+		 		<th>Código</th>
 				<th>DPI</th>
 			   <th>Nombre Completo</th>
 			   <th>Dirección</th>
@@ -51,7 +52,7 @@ $(document).ready(function() {
 $conexion =Database::getCon();
 
 $sql = "
-select c.dpi,concat(c.nombre1,' ',c.nombre2,' ',c.apellido1,' ',c.apellido2) as Nombres,  c.direccion, telefono,  email, nombrefinca,nombredepartamento, estado
+select codigocolaborador,c.dpi,concat(c.nombre1,' ',c.nombre2,' ',c.apellido1,' ',c.apellido2) as Nombres,  c.direccion, telefono,  email, nombrefinca,nombredepartamento, estado
 from Colaborador as c
 left join Finca as f on f.idfinca=c.finca_idfinca
 left join Departamento as d on d.iddepartamento = c.departamento_iddepartamento
@@ -63,6 +64,7 @@ while($fila = sqlsrv_fetch_array($resultado)){
 
 ?>
 		 <tr>
+		 <td> <?php echo $fila['codigocolaborador'];?> </td>
 			 <td> <?php echo $fila['dpi'];?> </td>
 			 <td><?php echo $fila['Nombres'];?></td>
 			 <td><?php echo $fila['direccion'];?></td>
@@ -71,9 +73,10 @@ while($fila = sqlsrv_fetch_array($resultado)){
 			 <td><?php echo $fila['nombrefinca'];?></td>
 			 <td><?php echo $fila['nombredepartamento'];?></td>
 			 <td><?php echo $fila['estado'];?></td>
-			 <td> <a href="index.php?view=editarUsuario" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
-		<a ><a href="index.php?view=eliminaUsuario" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a></td>
+			 <td> <a href="index.php?view=editarColaborador&idcolaborador=<?php echo $fila['codigocolaborador'];?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
+				  <a href="index.php?view=eliminarColaborador&idcolaborador=<?php echo $fila['codigocolaborador'];?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a></td>
             </tr>
+
 
 		 <?php }; ?>          
 	 </tbody>

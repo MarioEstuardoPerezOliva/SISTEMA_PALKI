@@ -88,8 +88,8 @@ while($fila = sqlsrv_fetch_array($resultado)){
 			 <td><?php echo $fila['nombrefinca'];?></td>
 			 <td><?php echo $fila['nombredepartamento'];?></td>
 			 <td><?php echo $fila['estado'];?></td>
-			 <td> <a href="index.php?view=editarUsuario" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
-		<a ><a href="index.php?view=eliminaUsuario" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a></td>
+			 <td> <a href="index.php?view=editarColaborador&id=<?php echo $fila['codigocolaborador'];?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
+				  <a href="index.php?view=eliminarColaborador&id=<?php echo $fila['codigocolaborador'];?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a></td>
             </tr>
 
 		 <?php }; ?>          
