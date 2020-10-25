@@ -1,18 +1,18 @@
 <?php
-eliminarUsuario($_GET["idusuario"]);
+eliminarDepartamento($_GET["id"]);
 
 
 
-function eliminarUsuario($id_usuario){
+function eliminarDepartamento($id_departamento){
    
     $conexion=Database::getCon();
-    $sql = "delete from Usuario where idusuario='".$id_usuario."'";
+    $sql = "delete from Departamento where iddepartamento='".$id_departamento."'";
     $resultado = sqlsrv_query($conexion,$sql);  
 }
 
 ?>
 
 <script type="text/javascript">
-alert("Usuario Eliminado Exitosamente");
-window.location='index.php?view=usuario2';
+alert("Departamento Eliminado Exitosamente");
+window.location='index.php?view=departamento';
 </script>

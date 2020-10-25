@@ -1,18 +1,18 @@
 <?php
-eliminarUsuario($_GET["idusuario"]);
+eliminarTarea($_GET["id"]);
 
 
 
-function eliminarUsuario($id_usuario){
+function eliminarTarea($id_tarea){
    
     $conexion=Database::getCon();
-    $sql = "delete from Usuario where idusuario='".$id_usuario."'";
+    $sql = "delete from Tarea where idtarea='".$id_tarea."'";
     $resultado = sqlsrv_query($conexion,$sql);  
 }
 
 ?>
 
 <script type="text/javascript">
-alert("Usuario Eliminado Exitosamente");
-window.location='index.php?view=usuario2';
+alert("Tarea Eliminada Exitosamente");
+window.location='index.php?view=tarea';
 </script>

@@ -15,7 +15,7 @@
     <!-- Main content -->
     <section class="content">
 
-      <div class="container-fluid">
+      <div class="container-fluid alert alert-warning">
         <div class="row">
           <div class="col-12">
             <!-- Default box -->
@@ -127,8 +127,8 @@ while($fila = sqlsrv_fetch_array($resultado)){
           <tr>
               <td> <?php echo $fila['codigo'];?> </td>
               <td><?php echo $fila['medida'];?></td>
-              <td> <a href="index.php?view=editarUsuario" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
-		          <a ><a href="index.php?view=eliminaUsuario" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
+              <td> <a href="index.php?view=editarMedidaPlanta&id=<?php echo $fila['codigo'];?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
+				  <a href="index.php?view=eliminarMedidaPlanta&id=<?php echo $fila['codigo'];?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a></td>
             </tr>
 
           <?php }; ?>          

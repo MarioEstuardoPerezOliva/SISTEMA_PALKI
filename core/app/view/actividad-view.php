@@ -64,10 +64,9 @@ while($fila = sqlsrv_fetch_array($resultado)){
        <td><?php echo $fila['nombrefinca'];?></td>
        <td><?php echo $fila['Fecha_Hora_inicio'];?></td>
        <td><?php echo $fila['Fecha_Hora_fin'];?></td>
-       <td> <a href="index.php?view=editarUsuario" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
-		<a href="index.php?view=eliminarActividad" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
+       <td> <a href="index.php?view=editarActividad&id=<?php echo $fila['idactividad'];?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
+	   <a href="index.php?view=eliminarActividad&id=<?php echo $fila['idactividad'];?>"  class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
             </tr>
-
 		 <?php }; ?>          
 	 </tbody>
 

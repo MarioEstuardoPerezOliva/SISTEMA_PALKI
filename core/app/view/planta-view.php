@@ -138,8 +138,8 @@ while($fila = sqlsrv_fetch_array($resultado)){
               <td> <?php echo $fila['codigo'];?> </td>
               <td><?php echo $fila['nombreplanta'];?></td>
               <td><?php echo $fila['medida'];?></td>
-              <td> <a href="index.php?view=editarUsuario" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
-		          <a ><a href="index.php?view=eliminaUsuario" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
+              <td> <a href="index.php?view=editarPlanta&id=<?php echo $fila['codigo'];?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
+				  <a href="index.php?view=eliminarPlanta&id=<?php echo $fila['codigo'];?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a></td>
             </tr>
 
           <?php }; ?>          

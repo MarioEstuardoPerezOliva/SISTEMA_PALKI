@@ -1,18 +1,18 @@
 <?php
-eliminarUsuario($_GET["idusuario"]);
+eliminarFinca($_GET["id"]);
 
 
 
-function eliminarUsuario($id_usuario){
+function eliminarFinca($id_finca){
    
     $conexion=Database::getCon();
-    $sql = "delete from Usuario where idusuario='".$id_usuario."'";
+    $sql = "delete from Finca where idfinca='".$id_finca."'";
     $resultado = sqlsrv_query($conexion,$sql);  
 }
 
 ?>
 
 <script type="text/javascript">
-alert("Usuario Eliminado Exitosamente");
-window.location='index.php?view=usuario2';
+alert("Finca Eliminado Exitosamente");
+window.location='index.php?view=finca';
 </script>
