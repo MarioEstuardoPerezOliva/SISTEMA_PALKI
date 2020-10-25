@@ -24,7 +24,7 @@ return [
 ?>
 <div class="row">
 	<div class="col-md-12">
-	<h1>Agregar Usuario</h1>
+	<h1>Modificar Usuario</h1>
 	<br>
 		<form class="form-horizontal" method="post" id="addproduct" action="index.php?view=actualizarUsuario" role="form">
     <div class="form-group">
@@ -85,7 +85,8 @@ return [
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Tipo de Usuario*</label>
     <div class="col-md-6">
-    <select class="form-control" id=" idtipousuario" name=" idtipousuario"value="<?php echo $mostrar[6]?>">
+    <input class="form-control" id=" idtipousuario" readonly="readonly" name=" idtipousuario"value="<?php echo $mostrar[6]?>">
+    <select class="form-control" id=" idtipousuario" name=" idtipousuario">
    <option selected disabled> Seleccionar de la lista </option>;
 <?php
     $conexion =Database::getCon();
@@ -105,7 +106,8 @@ return [
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Estado*</label>
     <div class="col-md-6">
-    <select class="form-control" id=" idestado" name=" idestado" value="<?php echo $mostrar[7]?>">
+    <input class="form-control" id=" idestado" name=" idestado" readonly="readonly" value="<?php echo $mostrar[7]?>">
+    <select class="form-control" id=" idestado" name=" idestado">
    <option selected disabled> Seleccionar de la lista </option>;
 <?php
     $conexion =Database::getCon();

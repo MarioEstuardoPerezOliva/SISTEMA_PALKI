@@ -13,7 +13,7 @@ modificarColaborador(
 	$_POST["idfinca"],
 	$_POST["iddepartamento"],
 	$_POST["idestado"],
-	$_POST["idcolaborador"]
+	$_POST["codigocolaborardor"]
 );
 function modificarColaborador(
 	$dpi,
@@ -22,7 +22,7 @@ function modificarColaborador(
 	$apellido1,
 	$apellido2,
 	$edad,
-	$direccion
+	$direccion,
 	$genero,
 	$telefono,
 	$email,
