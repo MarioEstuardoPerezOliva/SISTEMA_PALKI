@@ -51,7 +51,11 @@
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Género*</label>
     <div class="col-md-6">
-      <input type="text" name="genero" class="form-control" id="genero" placeholder="Masculino / Femenino">
+    <select class="form-control" id=" genero" name=" genero">
+        <option selected disabled> Seleccionar de la lista </option>;
+        <option value="Masculino">Masculino</option>
+        <option value="Femenino">Femenino</option>
+      </select>
     </div>
   </div>
   <div class="form-group">

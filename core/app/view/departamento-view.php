@@ -127,7 +127,7 @@ while($fila = sqlsrv_fetch_array($resultado)){
           <tr>
               <td> <?php echo $fila['codigo'];?> </td>
               <td><?php echo $fila['departamento'];?></td>
-              <td> <a href="index.php?view=editarColaborador&id=<?php echo $fila['codigo'];?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
+              <td> <a href="index.php?view=editarDepartamento&id=<?php echo $fila['codigo'];?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
 		          <a ><a href="index.php?view=eliminarDepartamento&id=<?php echo $fila['codigo'];?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
             </tr>
 

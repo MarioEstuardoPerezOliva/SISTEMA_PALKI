@@ -126,7 +126,7 @@ return [
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <button type="submit" class="btn btn-danger"><i class='glyphicon glyphicon-user'></i>Modificar Usuario</button>
+    <button type='submit' class="btn btn-danger"> <i class="fa fa-refresh fa-spin"></i>          Modificar Usuario</button>
     </div>
   </div>
 </form>
