@@ -35,10 +35,10 @@
 
   </head>
 
-  <body class="<?php if(isset($_SESSION["user_id"]) || isset($_SESSION["client_id"])):?>  skin-green sidebar-mini <?php else:?>login-page<?php endif; ?>" >
+  <body class="<?php if(isset($_SESSION["user_id"])):?> skin-green sidebar-mini <?php else:?>login-page<?php endif; ?>" >
     <div class="wrapper">
       <!-- Main Header -->
-      <?php if(isset($_SESSION["user_id"]) || isset($_SESSION["client_id"])):?>
+      <?php if(isset($_SESSION["user_id"])):?>
       <header class="main-header">
         <!-- Logo -->
         <a href="./" class="logo">
@@ -134,7 +134,6 @@
                 <li><a href="./?view=planta">Planta</a></li>
                 <li><a href="./?view=medidaPlanta">Medida Planta</a></li>
                 <li><a href="./?view=tarea">Tareas</a></li>
-                <li><a href="./?view=pruebas">Prueba</a></li>
 
               </ul>
             </li>
@@ -147,7 +146,7 @@
     <?php endif;?>
 
       <!-- Content Wrapper. Contains page content -->
-      <?php if(isset($_SESSION["user_id"]) || isset($_SESSION["client_id"])):?>
+      <?php if(isset($_SESSION["user_id"])):?>
       <div class="content-wrapper">
       <div class="content">
         <?php View::load("index");?>
@@ -183,7 +182,7 @@
           <div class="row">
 
             <div class="col-xs-12">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Acceder</button>
+              <button type="submit" class="btn btn-success btn-block btn-flat">Acceder</button>
             </div><!-- /.col -->
           </div>
         </form>

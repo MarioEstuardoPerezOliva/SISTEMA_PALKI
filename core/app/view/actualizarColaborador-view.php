@@ -53,6 +53,6 @@ function modificarColaborador(
 
 ?>
 <script type="text/javascript">
-alert("Usuario Modificado Exitosamente");
+alert("Colaborador Modificado Exitosamente");
 window.location='index.php?view=colaboradores';
 </script>

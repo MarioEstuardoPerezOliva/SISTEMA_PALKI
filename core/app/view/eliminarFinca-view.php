@@ -13,6 +13,6 @@ function eliminarFinca($id_finca){
 ?>
 
 <script type="text/javascript">
-alert("Finca Eliminado Exitosamente");
+alert("Finca Eliminada Exitosamente");
 window.location='index.php?view=finca';
 </script>

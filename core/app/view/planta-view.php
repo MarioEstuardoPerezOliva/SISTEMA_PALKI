@@ -55,7 +55,7 @@
     while ($valores = sqlsrv_fetch_array($resultado)) {
       // En esta sección estamos llenando el select con datos extraidos de una base de datos.
       ?>      
-       <option value="  <?php echo $valores['idmedidaplanta'];?>"> <?php echo $valores['medidaplanta']." - ".$valores['unidadmedida'];?>  </option>';
+       <option value="  <?php echo $valores['idmedidaplanta'];?>"> <?php echo $valores['idmedidaplanta']." ) ".$valores['medidaplanta']." - ".$valores['unidadmedida'];?>  </option>';
      
      <?php } ?>
   </select>
