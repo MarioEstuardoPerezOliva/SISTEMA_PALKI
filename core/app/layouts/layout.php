@@ -134,6 +134,7 @@
                 <li><a href="./?view=planta">Planta</a></li>
                 <li><a href="./?view=medidaPlanta">Medida Planta</a></li>
                 <li><a href="./?view=tarea">Tareas</a></li>
+                <li><a href="./?view=pruebas">Prueba</a></li>
 
               </ul>
             </li>

@@ -9,7 +9,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-
+            <h3><?php echo ColaboradorData::getAll();?></h3>
               <p>Colaboradores</p>
             </div>
             <div class="icon">
@@ -25,9 +25,8 @@
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-purple">
-          
-            <div class="inner">
-            <h3><?php echo count(UserData::getAll());?></h3>
+          <div class="inner">
+            <h3><?php echo UsuarioData::getAll();?></h3>
               <p>Usuarios</p>
             </div>
             <div class="icon">
@@ -38,28 +37,13 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner">
-             
 
-              <p>Gestiones</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="./?view=providers" class="small-box-footer">Ver mas <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              
-
-              <p>TAREAS</p>
+            <h3><?php echo ActividadData::getAll();?></h3>
+              <p>Tareas / Actividades</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
