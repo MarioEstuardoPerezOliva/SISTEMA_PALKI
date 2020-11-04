@@ -45,7 +45,7 @@ $conexion =Database::getCon();
 
 $sql = "
 select a.idactividad,concat(c.nombre1,' ',c.nombre2,' ',c.apellido1,' ',c.apellido2) as Nombres, tarea,nombrefinca, nombreplanta, concat(fechainicio,' ',horainicio) as Fecha_Hora_inicio, concat(fechafin,' ',horafin) as Fecha_Hora_fin
-from Actividad2 as a
+from Actividad as a
 left join Colaborador as c on c.codigocolaborador=a.colaborador_codigocolaborador
 left join Tarea as t on t.idtarea = a.tarea_idtarea
 left join Finca as f on f.idfinca =a.finca_idfinca

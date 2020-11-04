@@ -92,11 +92,14 @@
             </div>
             <!-- User Account Menu -->
             <li class="dropdown user user-menu">
+           
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle">
                   <!-- The user image in the navbar-->
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class="  "> </span>
+                  <span class=""><?php if(isset($_SESSION["user_id"]) ){ echo UsuarioData::datosUsuario($_SESSION["user_id"]); 
+
+}?>  </span>
                 </a>
                 <br><br>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online </a>

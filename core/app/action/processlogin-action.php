@@ -24,13 +24,13 @@ if (!$conexion){
             $userid = $row['idusuario'];
             $_SESSION['user_id']=$userid;
         
-            echo $row['username'].", ".$row['password']."<br />";
+            echo $row['username'].", bienvenido!! <br />";
             print "<script>window.location='index.php?view=home';</script>";
 
         }
         
     }
-
+    echo "Usuario y/o contrasenia incorrecta";
     print "<script>window.location='index.php?view=login';</script>";
 
 }

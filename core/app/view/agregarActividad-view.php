@@ -28,7 +28,7 @@ $horafin
 ){
    
     $conexion=Database::getCon();
-    $sql = "insert into Actividad2 (
+    $sql = "insert into Actividad (
 colaborador_codigocolaborador,
 tarea_idtarea,
 finca_idfinca,

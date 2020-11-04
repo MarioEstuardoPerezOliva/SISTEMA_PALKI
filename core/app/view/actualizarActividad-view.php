@@ -22,7 +22,7 @@ function modificarActividad(
 	$id_actividad
 	){
 	$conexion=Database::getCon();
-	$sql="update Actividad2 set 
+	$sql="update Actividad set 
 	colaborador_codigocolaborador='".$colaborador."',
 	tarea_idtarea='".$tarea."',
 	finca_idfinca='".$finca."',

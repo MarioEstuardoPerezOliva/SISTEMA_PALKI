@@ -3,7 +3,7 @@ $mostrar = mostrarActividad($_GET["id"]);
 
 function mostrarActividad($id_actividad){
   $conexion=Database::getCon();
-  $sql = "select * from Actividad2 
+  $sql = "select * from Actividad
   where idactividad='".$id_actividad."'";
   $resultado= sqlsrv_query($conexion,$sql) or die(sqlsrv_error());
   $fila = sqlsrv_fetch_array($resultado,SQLSRV_FETCH_ASSOC);
