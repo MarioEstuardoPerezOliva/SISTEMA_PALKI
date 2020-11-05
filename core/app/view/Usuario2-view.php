@@ -31,7 +31,7 @@ $(document).ready(function() {
 <body class="wide comments example">
 <div class="row">
 <div class="col-md-12">
-<a href="index.php?view=nuevoUsuario" class="btn btn-warning pull-right"><i class='glyphicon glyphicon-user'></i> Nuevo Usuario</a>
+<a href="index.php?view=nuevoUsuario" class="btn btn-warning pull-right"><i class='fa  fa-user-plus'></i> Nuevo Usuario</a>
 <h1>Lista de Usuarios</h1>
 <br>
 <div class="demo-html">

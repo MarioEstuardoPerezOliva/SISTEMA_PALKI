@@ -8,12 +8,7 @@ modificarActividad(
 	$_POST["horainicio"],
 	$_POST["fechafinal"],
 	$_POST["horafin"],
-	$_POST["avance"],
-	$_POST["idestado"],
-	$_POST["idusuario"],
-	$_POST["observacion"],
 	$_POST["idactividad"]
-	
 );
 function modificarActividad(
 	$colaborador,
@@ -24,10 +19,6 @@ function modificarActividad(
 	$horainicio,
 	$fechafinal,
 	$horafinal,
-	$avance,
-	$estado,
-	$encargado,
-	$motivo,
 	$id_actividad
 	){
 	$conexion=Database::getCon();
@@ -39,11 +30,7 @@ function modificarActividad(
 	fechainicio='".$fechainicio."',
 	horainicio='".$horainicio."',
 	fechafin='".$fechafinal."',
-	horafin='".$horafinal."',
-	porcentaje='".$avance."',
-	estadoactividad_idestado='".$estado."',
-	usuario_idusuario='".$encargado."',
-	descripcion='".$motivo."'
+	horafin='".$horafinal."'
 	where idactividad='".$id_actividad."'";
 
 	$resultado= sqlsrv_query($conexion,$sql);

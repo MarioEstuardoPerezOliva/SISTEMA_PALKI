@@ -26,16 +26,14 @@ $(document).ready(function() {
 					<table id="" class="display" style="width:100%" border="1" class="table table-responsive table-striped">
 					<thead>
 		 <tr>
-		<th>Código</th>
-		<th>Nombre Completo</th>
+		 	   <th>Código</th>
+			   <th>Nombre Completo</th>
          <th>Tarea</th>
          <th>Planta</th>
          <th>Finca</th>
          <th>Fecha-Hora Inicio</th>
          <th>Fecha-Hora Fin</th>
-		 <th>Estado</th>
-		 <th>Avance</th>
-		<th>Acciones</th>
+			   <th>Acciones</th>
 		 </tr>
 	 </thead>
 	 <tbody>
@@ -46,12 +44,11 @@ $(document).ready(function() {
 $conexion =Database::getCon();
 
 $sql = "
-select a.idactividad,concat(c.nombre1,' ',c.nombre2,' ',c.apellido1,' ',c.apellido2) as Nombres, tarea,nombrefinca, nombreplanta, concat(fechainicio,' | ',horainicio) as Fecha_Hora_inicio, concat(fechafin,' | ',horafin) as Fecha_Hora_fin,e.estado,porcentaje
+select a.idactividad,concat(c.nombre1,' ',c.nombre2,' ',c.apellido1,' ',c.apellido2) as Nombres, tarea,nombrefinca, nombreplanta, concat(fechainicio,' ',horainicio) as Fecha_Hora_inicio, concat(fechafin,' ',horafin) as Fecha_Hora_fin
 from Actividad as a
 left join Colaborador as c on c.codigocolaborador=a.colaborador_codigocolaborador
 left join Tarea as t on t.idtarea = a.tarea_idtarea
 left join Finca as f on f.idfinca =a.finca_idfinca
-left join EstadoActividad as e on e.idestado =a.estadoactividad_idestado
 left join Planta as p on p.idplanta = a.planta_idplanta";
 
 $resultado= sqlsrv_query($conexion,$sql);
@@ -67,11 +64,8 @@ while($fila = sqlsrv_fetch_array($resultado)){
        <td><?php echo $fila['nombrefinca'];?></td>
        <td><?php echo $fila['Fecha_Hora_inicio'];?></td>
        <td><?php echo $fila['Fecha_Hora_fin'];?></td>
-	   <td><?php echo $fila['estado'];?></td>
-	   <td><?php echo $fila['porcentaje'];?></td>
-	   <td> <a href="index.php?view=editarActividad&id=<?php echo $fila['idactividad'];?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
-	   <a href="index.php?view=solicitud&id=<?php echo $fila['idactividad'];?>"  class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
-	   <a href="index.php?view=eliminarActividad&id=<?php echo $fila['idactividad'];?>"  class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a></td>
+       <td> <a href="index.php?view=editarActividad&id=<?php echo $fila['idactividad'];?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i>   Editar</a>
+	   <a href="index.php?view=eliminarActividad&id=<?php echo $fila['idactividad'];?>"  class="btn btn-xs btn-danger"><i class="fa fa-trash"></i>    Eliminar</a></td>
             </tr>
 		 <?php }; ?>          
 	 </tbody>

@@ -1,42 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+$(document).ready(function() {
+	$('table.display').DataTable( {
+		fixedHeader: {
+			header: false,
+			footer: false
+		}
+	} );
+} );
+
+
+	</script>
+</head>
+<body class="wide comments example">
+<div class="row">
+	<div class="col-md-12">
+  <a href="index.php?view=nuevaActividad2" class="btn btn-warning pull-right"><i class='glyphicon glyphicon-file'></i> Asignar Actividad</a>
+	<div class="btn-group pull-right">
+</div>
+		<h1>ACTIVIDADES</h1>
+<br>
+				<div class="demo-html">
+					<table id="" class="display" style="width:100%" border="1" class="table table-responsive table-striped">
+					<thead>
+		 <tr>
+		<th>Código</th>
+		<th>Nombre Completo</th>
+         <th>Tarea</th>
+         <th>Planta</th>
+         <th>Finca</th>
+         <th>Fecha-Hora Inicio</th>
+         <th>Fecha-Hora Fin</th>
+		 <th>Estado</th>
+		 <th>Avance</th>
+		<th>Acciones</th>
+		 </tr>
+	 </thead>
+	 <tbody>
+
 <?php 
+
 $mostrar = mostrarActividad($_GET["id"]);
 
 function mostrarActividad($id_actividad){
-  $conexion=Database::getCon();
-  $sql = "select * from Actividad
-  where idactividad='".$id_actividad."'";
-  $resultado= sqlsrv_query($conexion,$sql) or die(sqlsrv_error());
-  $fila = sqlsrv_fetch_array($resultado,SQLSRV_FETCH_ASSOC);
+$conexion =Database::getCon();
+
+$sql = "
+select a.idactividad,concat(c.nombre1,' ',c.nombre2,' ',c.apellido1,' ',c.apellido2) as Nombres, tarea,nombrefinca, nombreplanta,fechainicio,horainicio,fechafin,horafin,e.estado,porcentaje,concat(c.nombre1,' ',c.nombre2,' ',c.apellido1,' ',c.apellido2) as encargado
+from Actividad2 as a
+left join Colaborador as c on c.codigocolaborador=a.colaborador_codigocolaborador
+left join Tarea as t on t.idtarea = a.tarea_idtarea
+left join Finca as f on f.idfinca =a.finca_idfinca
+left join EstadoActividad as e on e.idestado =a.estadoactividad_idestado
+left join Planta as p on p.idplanta = a.planta_idplanta where idactividad='".$id_actividad."'";
+$resultado= sqlsrv_query($conexion,$sql) or die(sqlsrv_error());
+$fila = sqlsrv_fetch_array($resultado,SQLSRV_FETCH_ASSOC);
 
 return [
-  $fila['colaborador_codigocolaborador'],
-  $fila['tarea_idtarea'],
-  $fila['finca_idfinca'],
-  $fila['planta_idplanta'],
+  $fila['Nombres'],
+  $fila['tarea'],
+  $fila['nombrefinca'],
+  $fila['nombreplanta'],
   $fila['fechainicio'],
   $fila['horainicio'],
   $fila['fechafin'],
   $fila['horafin'],
   $fila['porcentaje'],
-  $fila['estadoactividad_idestado'],
-  $fila['usuario_idusuario'],
-  $fila['descripcion']
+  $fila['estado'],
+  $fila['encargado']
 ];    
              
 }
                 
 ?>
 
+  
   <!-- Main content -->
   <section class="content">
       <div class="row">
         <div class="col-md-6">
           <div class="card alert alert-success">
             <div class="card-header">
-              <center><h3 class="card-title">Modificar Actividad</h3></center>
+              <center><h3 class="card-title">Asignar Actividad</h3></center>
             </div>
            <div class="card-body">
-            <form class="form-group" method="post" id="aggactividad" action="index.php?view=actualizarActividad" role="form">
+            <form class="form-group" method="post" id="aggactividad" action="index.php?view=actualizarActividad2" role="form">
             <div class="form-group">
                 <input class="form-control" readonly="readonly"id="idactividad" type="hidden" name=" idactividad" value="<?php echo $_GET["id"]?>">
               </div>
@@ -65,7 +115,7 @@ return [
 
               <div class="form-group">
                 <label for="inputStatus">Seleccionar Finca</label>
-                <input class="form-control" id=" idfinca" name=" idfinca" readonly="readonly" value="<?php echo $mostrar[2]?>">
+                <input class="form-control"type="text" id=" idfinca" name=" idfinca" readonly="readonly" value="<?php echo $mostrar[2]?>">
                 <select class="form-control" id=" idfinca" name=" idfinca">
                   <option selected disabled> Seleccionar de la lista </option>;
                     <?php
@@ -101,11 +151,12 @@ return [
               </div>
               <div class="form-group">
               <label for="inputEmail1">Fecha Fin</label>
-              <input type="date" name="fechainicial" class="form-control" id="fechainicial"  value="<?php echo $mostrar[4]?>" >
-              </div>
+              <input name="fechainicial" class="form-control" id="fechainicial"  readonly="readonly" value="<?php echo $mostrar[4]?>" >
+              <input type="date" name="fechainicial" class="form-control" id="fechainicial"   >
+            </div>
               <div class="form-group">
                 <label for="inputStatus">Hora Inicio</label>
-                <input class="form-control" id="horainicio" name="horainicio" readonly="readonly" value="<?php echo $mostrar[5]?>">
+                <input class="form-control"  id="horainicio" name="horainicio" readonly="readonly" value="<?php echo $mostrar[5]?>">
                 <select class="form-control" id="horainicio" name="horainicio" >
                   <option selected disabled>Seleccionar Hora</option>
                   <option value="06:00 hrs">06:00 hrs</option>
@@ -128,8 +179,10 @@ return [
               </div>
               <div class="form-group">
               <label for="inputEmail1">Fecha Fin</label>
-              <input type="date" name="fechafinal" class="form-control" id="fechafinal" value="<?php echo $mostrar[6]?>">
-              </div>
+              <input type="text" name="fechafinal" class="form-control" id="fechafinal" readonly="readonly" value="<?php echo $mostrar[6]?>">
+              <input type="date" name="fechafinal" class="form-control" id="fechafinal">
+              
+            </div>
               <div class="form-group">
                 <label for="inputStatus">Hora Fin</label>
                 <input class="form-control" id="horafin" name="horafin" readonly="readonly" value="<?php echo $mostrar[7]?>">
@@ -193,16 +246,10 @@ return [
 
               <div class="form-group">
                 <label for="inputStatus">Encargado</label>
-                <input class="form-control" readonly="readonly"id="idusuario" type="text" name="idusuario" value="<?php echo $mostrar[10]?>">
+                <input class="form-control" readonly="readonly"id="idencargado" type="text" name="idencargado" value="<?php echo $mostrar[10]?>">
               </div>
               <div class="form-group">
-              <label for="inputEmail1">Observación</label>
-              <input class="form-control" readonly="readonly"id="observacion" type="text" name="observacion" value="<?php echo $mostrar[11]?>">
-              <textarea id="inputDescription" id="observacion"  name="observacion" class="form-control" rows="4"></textarea>
-              </div>
-
-              <div class="form-group">
-              <button type='submit' class="btn btn-danger"> <i class="fa fa-refresh fa-spin"></i>          Modificar Actividad</button>
+                <button type="submit" class="btn btn-danger"><i class='glyphicon glyphicon-pencil'></i> Modificar Actividad</button>
               </div>
             </div>
    
@@ -214,3 +261,49 @@ return [
       </div>
     </section>
     <!-- /.content -->
+   
+
+
+      </div></div>
+
+
+        <div class="col-md-6">
+        <div class="card alert alert-warning">
+          <div class="card card-secondary">
+            <div class="card-header">
+              <h3 class="card-title">Solicitud</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="inputEstimatedBudget">Estimated budget</label>
+                <input type="number" id="inputEstimatedBudget" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="inputSpentBudget">Total amount spent</label>
+                <input type="number" id="inputSpentBudget" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="inputEstimatedDuration">Estimated project duration</label>
+                <input type="number" id="inputEstimatedDuration" class="form-control">
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <a href="#" class="btn btn-secondary">Cancel</a>
+          <input type="submit" value="Create new Porject" class="btn btn-success float-right">
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  <!-- /.content-wrapper -->
+  </script>
+</body>
+</html>
+
+<br><br><br><br><br><br><br><br><br><br>
+	</div>

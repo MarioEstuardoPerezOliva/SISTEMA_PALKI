@@ -7,17 +7,12 @@
 	$horainicio = $_POST["horainicio"];
 	$fechafin = $_POST["fechafinal"];
 	$horafin = $_POST["horafin"];
-	$avance = $_POST["avance"];
-	$estado = $_POST["idestado"];
-	$encargado = $_POST["idusuario"];
-	$motivo = $_POST["motivo"];
-	
 
 	
 
 if( isset($codigocolaborador) && isset($idtarea) ){
 
-	aniadir($codigocolaborador,$idtarea,$idfinca,$idplanta,$fechainicio,$horainicio,$fechafin,$horafin,$avance,$estado,$encargado,$motivo);   
+	aniadir($codigocolaborador,$idtarea,$idfinca,$idplanta,$fechainicio,$horainicio,$fechafin,$horafin);   
     print "<script>window.location='index.php?view=actividad';</script>";
 }
 
@@ -29,11 +24,7 @@ $idplanta,
 $fechainicio,
 $horainicio,
 $fechafin,
-$horafin,
-$avance,
-$estado,
-$encargado,
-$motivo
+$horafin
 ){
    
     $conexion=Database::getCon();
@@ -45,11 +36,7 @@ planta_idplanta,
 fechainicio,
 horainicio,
 fechafin,
-horafin,
-porcentaje,
-estadoactividad_idestado,
-usuario_idusuario,
-descripcion
+horafin
 		) 
     values (
 		'".$codigocolaborador."',
@@ -59,11 +46,7 @@ descripcion
 		'".$fechainicio."',
 		'".$horainicio."',
 		'".$fechafin."',
-		'".$horafin."',
-		'".$avance."',
-		'".$estado."',
-		'".$encargado."',
-		'".$motivo."'
+		'".$horafin."'
 		)";
     
     $resultado = sqlsrv_query($conexion,$sql);  

@@ -16,11 +16,7 @@ return [
   $fila['fechainicio'],
   $fila['horainicio'],
   $fila['fechafin'],
-  $fila['horafin'],
-  $fila['porcentaje'],
-  $fila['estadoactividad_idestado'],
-  $fila['usuario_idusuario'],
-  $fila['descripcion']
+  $fila['horafin']
 ];    
              
 }
@@ -33,7 +29,7 @@ return [
         <div class="col-md-6">
           <div class="card alert alert-success">
             <div class="card-header">
-              <center><h3 class="card-title">Modificar Actividad</h3></center>
+              <center><h3 class="card-title">Asignar Actividad</h3></center>
             </div>
            <div class="card-body">
             <form class="form-group" method="post" id="aggactividad" action="index.php?view=actualizarActividad" role="form">
@@ -153,56 +149,8 @@ return [
                   <option value="21:00 hrs">21:00 hrs</option>
                 </select>
               </div>
-
               <div class="form-group">
-                <label for="inputStatus">Avance</label>
-                <input class="form-control" id="avance" name="avance"  readonly="readonly" value="<?php echo $mostrar[8]?>" >
-                <select class="form-control" id="avance" name="avance">
-                  <option selected disabled>Seleccionar Porcentaje</option>
-                  <option value="0 %">0 %</option>
-                  <option value="10 %">10 %</option>
-                  <option value="20 %">20 %</option>
-                  <option value="30 %">30 %</option>
-                  <option value="40 %">40 %</option>
-                  <option value="50 %">50 %</option>
-                  <option value="60 %">60 %</option>
-                  <option value="70 %">70 %</option>
-                  <option value="80 %">80 %</option>
-                  <option value="90 %">90 %</option>
-                  <option value="100 %">100 %</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="inputStatus">Seleccionar Estado de la Actividad</label>
-                <input class="form-control"  id="idestado" name="idestado" readonly="readonly" value="<?php echo $mostrar[9]?>">
-                <select class="form-control"  id="idestado" name="idestado" >
-                  <option selected disabled> Seleccionar Estado </option>;
-                    <?php
-                        $conexion =Database::getCon();
-                                                                
-                        $query = "select * from EstadoActividad";
-                        $resultado = sqlsrv_query($conexion,$query);    
-                        while ($valores = sqlsrv_fetch_array($resultado)) {
-                          // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                          ?>      
-                          <option value="  <?php echo $valores['idestado'];?>"> <?php echo $valores['idestado']." - ".$valores['estado'];?>  </option>';
-                        
-                        <?php } ?>
-                      </select>
-              </div>
-
-              <div class="form-group">
-                <label for="inputStatus">Encargado</label>
-                <input class="form-control" readonly="readonly"id="idusuario" type="text" name="idusuario" value="<?php echo $mostrar[10]?>">
-              </div>
-              <div class="form-group">
-              <label for="inputEmail1">Observación</label>
-              <input class="form-control" readonly="readonly"id="observacion" type="text" name="observacion" value="<?php echo $mostrar[11]?>">
-              <textarea id="inputDescription" id="observacion"  name="observacion" class="form-control" rows="4"></textarea>
-              </div>
-
-              <div class="form-group">
-              <button type='submit' class="btn btn-danger"> <i class="fa fa-refresh fa-spin"></i>          Modificar Actividad</button>
+                <button type="submit" class="btn btn-danger"><i class='glyphicon glyphicon-pencil'></i> Agregar Actividad</button>
               </div>
             </div>
    

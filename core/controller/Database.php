@@ -11,7 +11,7 @@ class Database {
 	function connect(){
 	
 		$dbServidor = "localhost"; //Name of the server/instance, including optional port number (default is 1433)
-		$dbName = "bd_palki_sa"; //Name of the database
+		$dbName = "bdpalkisa"; //Name of the database
 		$dbUser = "marioadmin"; //Name of the user
 		$dbPassword = "admin123"; //DB Password of that user	
 			

@@ -19,12 +19,7 @@ $(document).ready(function() {
 	<div class="col-md-12">
 	<a href="index.php?view=nuevoColaborador" class="btn btn-danger"><i class='fa fa-user'></i> Nuevo Colaborador</a>
 	<div class="btn-group pull-right">
-  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-    <i class="fa fa-download"></i> Descargar <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-    <li><a class="btn btn-success" href="report/providers-word.php">Word 2007 (.docx)</a></li>
-  </ul>
+
 </div>
 		<h1>Lista de Colaboradores</h1>
 <br>
