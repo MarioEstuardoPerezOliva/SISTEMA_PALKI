@@ -1,6 +1,7 @@
-/*create database bd_palki_sa;*/
-
-use  bd_palki_sa;
+/*create database bdpalkisa;*/
+/*use master;
+drop database bd_palki_sa;*/
+use  bdpalkisa;
 
 
 CREATE TABLE Estado (
@@ -144,6 +145,8 @@ CREATE TABLE Usuario (
 );
 ALTER TABLE Usuario ADD CONSTRAINT usuario_pk PRIMARY KEY ( idusuario );
 
+
+/* tabala actividad mejorada*/
 CREATE TABLE Actividad (
     idactividad      INTEGER IDENTITY(1,1),
 	colaborador_codigocolaborador INTEGER,
@@ -153,26 +156,47 @@ CREATE TABLE Actividad (
 	fechainicio varchar(30),
 	horainicio varchar(30),
 	fechafin varchar(30),
-	horafin varchar(30)
+	horafin varchar(30),
+	porcentaje varchar(30),
+	descripcion varchar(300),
+	estadoactividad_idestado  INTEGER,
+	usuario_idusuario	INTEGER
 );
 ALTER TABLE Actividad ADD CONSTRAINT actividad_pk PRIMARY KEY ( idactividad );
 
-/*llaves foraneas Actividad*/
+CREATE TABLE EstadoActividad (
+    idestado  INTEGER IDENTITY(1,1),
+    estado    VARCHAR(30)
+);
+
+ALTER TABLE EstadoActividad ADD CONSTRAINT estadoactividad_pk PRIMARY KEY ( idestado );
+
+
+/*llaves foraneas Actividad 2*/
 ALTER TABLE Actividad
     ADD CONSTRAINT actividad_colaborador_fk FOREIGN KEY ( colaborador_codigocolaborador )
         REFERENCES Colaborador ( codigocolaborador );
 
 ALTER TABLE Actividad
     ADD CONSTRAINT actividad_tarea_fk FOREIGN KEY ( tarea_idtarea )
-        REFERENCES Tarea ( idtarea );
+        REFERENCES Tarea (idtarea );
 
 ALTER TABLE Actividad
-    ADD CONSTRAINT actividadfk_finca_fk FOREIGN KEY (finca_idfinca )
-        REFERENCES Finca ( idfinca );
+    ADD CONSTRAINT actividad_finca_fk FOREIGN KEY (finca_idfinca )
+        REFERENCES Finca (idfinca );
 
 ALTER TABLE Actividad
-    ADD CONSTRAINT actividadllave_tarea_fk FOREIGN KEY ( planta_idplanta )
-        REFERENCES Planta ( idplanta );
+    ADD CONSTRAINT actividad_planta_fk FOREIGN KEY (planta_idplanta )
+        REFERENCES Planta (idplanta );
+
+
+ALTER TABLE Actividad
+    ADD CONSTRAINT actividad_estadoactividad_fk FOREIGN KEY ( estadoactividad_idestado )
+        REFERENCES EstadoActividad ( idestado );
+
+ALTER TABLE Actividad
+    ADD CONSTRAINT actividad_usuarioencargado_fk FOREIGN KEY (usuario_idusuario)
+        REFERENCES Usuario ( idusuario );
 
 ALTER TABLE Colaborador
     ADD CONSTRAINT colaborador_actividad_fk FOREIGN KEY ( actividad_idactividad )
@@ -238,6 +262,13 @@ VALUES
 ('No Activo');
 /*DBCC CHECKIDENT (usuario, RESEED, 0)*/
 
+INSERT INTO EstadoActividad(estado) 
+VALUES
+('En Proceso');
+
+INSERT INTO EstadoActividad(estado) 
+VALUES
+('Finalizado');
 
 INSERT INTO Usuario(nombre1, nombre2, apellido1,apellido2, username, password, tipousuario_idtipousuario, estado_idestado) 
 VALUES
@@ -246,10 +277,6 @@ VALUES
 INSERT INTO Usuario(nombre1, nombre2, apellido1,apellido2, username, password, tipousuario_idtipousuario, estado_idestado) 
 VALUES
 ('Juan','Antonio', 'Ramos', 'Cardona','juan123', 'Juan123', 2, 1);
-
-INSERT INTO Usuario(nombre1, nombre2, apellido1,apellido2, username, password, tipousuario_idtipousuario, estado_idestado) 
-VALUES
-('Mario','Aexis', 'Moran', 'Orellana','alexis123', 'Alexis/1', 1, 1)
 
 
 
